@@ -1,0 +1,35 @@
+.column2-logIn {
+    width: 87%;
+    display: flex;
+    flex-direction: column;
+    gap: 4vw;
+}
+
+.column2-logIn h1 {
+    font-family: 'Alfa Slab One', cursive;
+}
+
+.column2-logIn p {
+    font-size: calc(1rem + 1.5vw);
+    font-family: 'Timmana', sans-serif;
+    text-align: center;
+}
+
+#signIn-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+#signIn-form .alert, #logIn-form .alert {
+    margin-top: -10px;
+    margin-bottom: -7px;
+}
+
+.signIn-col-bg {
+
+    background: linear-gradient(45deg, #1f289b59, #7afff187);
+    margin-right: 1rem;
+    border-radius: 5px;
+ 
+}

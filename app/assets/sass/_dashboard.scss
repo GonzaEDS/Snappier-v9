@@ -1,0 +1,172 @@
+.coin-logo {
+    width: 10%;
+}
+td img {
+    width: 1.5rem;
+}
+
+tbody tr  {
+    cursor: pointer;
+}
+
+tbody tr:hover {
+    background-color: #645b5b;
+} 
+
+
+tr.no-matches-row {
+    font-size: calc(0.5rem + 2vw);
+    text-align: center;
+    background-color: transparent;
+    &:hover {
+        background-color: transparent;
+    }
+}
+
+
+.current_price::before, .ath::before {
+    content: "$";
+}
+.ath_change_percentage::after {
+    content: "%"
+}
+
+.displayNone {
+    display: none!important;
+}
+
+/* calculator */
+.calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.calculatorContainer {
+    padding: 0.5rem 1rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr;    align-items: center;
+    justify-items: center;
+    
+    width: fit-content;
+    border: 1px solid white;
+    border-radius: 1rem;
+    background-color: #9d969658;
+
+}
+
+.selectedCoin {
+    grid-column: 1;
+    grid-row: 1;
+}
+.coinLogo {
+    grid-column: 1;
+    grid-row: 2;
+}
+.coinInput {
+
+    grid-column: 1;
+    grid-row: 3;
+
+}
+.usdTitle {
+    grid-column: 2;
+    grid-row: 1;
+}
+.calculator-svg {
+    grid-column: 2;
+    grid-row: 2;
+}
+.result {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+.calculator img, .calculator svg {
+    width: 5rem;
+}
+
+
+.cryptocurrency, .usd {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+}
+
+.arrowSvg {
+    fill: rgb(255, 255, 255);
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+    cursor: pointer;
+
+}
+.arrowSvg:hover {
+    transform: rotate(180deg) scale(1.1);
+}
+
+input.coinInput {
+    text-align: center;
+    font-weight: 500;
+    color: #292727;
+    width: 40%;
+}
+p.result {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+
+// reordenar
+.navbar-brand {
+    width: 25%;
+}
+h1 {
+    text-align: center;
+}
+
+select, #filter {
+    word-wrap: normal;
+    background: #5c5656;
+    border-radius: 5px;
+    font-weight: 600;
+    color: #1b1717;
+    &:focus-visible {
+        outline: #817373 auto 1px!important;
+        outline-color: black!important;
+        outline-style: none!important;
+        outline-width: 17px!important;
+    }
+}
+
+section.coins-table {
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.page-header {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+}
+
+.table-tools {
+    display: flex;
+    gap: calc(5vw - 0.5rem);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.page-header h1 {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+

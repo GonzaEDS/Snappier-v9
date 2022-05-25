@@ -1,0 +1,29 @@
+// font-family: 'Alfa Slab One', cursive;
+// font-family: 'Lato', sans-serif;
+// font-family: 'Roboto', sans-serif;
+// font-family: 'Romanesco', cursive;
+// font-family: 'Timmana', sans-serif;
+
+
+@import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Lato:wght@100;300;400&family=Roboto:wght@500;700&family=Romanesco&family=Timmana&display=swap');
+
+
+// variables
+
+$primary: #375a7f;
+$body-bg: #222;
+$body-color: #fff;
+$font-family-sans-serif: 'Lato', sans-serif;
+
+// reset
+
+@media (min-width: 992px) {
+    .px-lg-6 {
+    padding-right: 6rem !important;
+    padding-left: 6rem !important;
+    }
+}
+
+
+
+

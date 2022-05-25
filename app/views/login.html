@@ -1,0 +1,35 @@
+
+  <div class="login-container px-lg-6">
+    <div class="light-background p-0 p-sm-2">
+      <div class="row justify-content-center" >
+      <!-- col 1 -->
+        <div class="col d-none d-sm-flex justify-content-center align-items-center flex-column d-relative">
+          <!-- Wallet svg -->
+          <img class="btc-wallet-svg" src="./app/assets/img/bitcoin-wallet.svg" alt="">
+        </div>
+        <!-- col 2  -->
+        <div class="col d-flex align-items.center justify-content-center">      
+          <div class="form-container col-12 col-lg-11 px-3 px-md-5 pb-5 border border-dark border-3">
+            <h2 class="form-h2">Welcome</h2>
+            <!-- login -->
+            <form id="logIn-form" action="#">
+              <div class="mb-2 mt-3">
+                  <label for="name" class="form-label">Username</label>
+                  <input type="text" autocomplete="off" class="form-control" name="name">
+              </div>   
+              <div class="mb-2">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control" name="password">
+              </div>      
+              <div class="mb-2">Dont have an account? <a href="#/signin">create one</a></div>
+              <div class="d-grid submit-box">
+                <button type="submit">
+                  <span>Log In</span>  
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>  
+  </div>
