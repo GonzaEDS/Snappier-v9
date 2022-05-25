@@ -23,7 +23,7 @@ export function signIn() {
       return
     }
     if (email == '') {
-      formErrorMessage(`Must include email `)
+      formErrorMessage(`Must include email`)
       return
     }
     if (passwordConfirmation != password) {
@@ -34,6 +34,11 @@ export function signIn() {
       formErrorMessage('Password must be 6 characters or longer ')
       return
     }
+    if (usersList.some(user => user.name === name)) {
+      formErrorMessage('That username is already taken')
+      return
+    }
+
     let id = usersList.length + 1
     console.log(usersList.length + 1)
     console.log(id)
@@ -41,6 +46,8 @@ export function signIn() {
     usersList.push(new User(id, name, password, email))
     console.log(usersList)
     localStorage.setItem('users', JSON.stringify(usersList))
+    localStorage.setItem('loged-user-id', id)
+
     location.hash = '#/testpage'
   })
 }

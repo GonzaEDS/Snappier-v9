@@ -15,7 +15,7 @@ export function logIn() {
       password = document.querySelector('input[name=password]').value
     console.log(password)
 
-    if (!usersList.some(user => user.name === name)) {
+    if (!usersList.some(user => user.name == name)) {
       formErrorMessage('That username does not exists')
       return
     }
@@ -26,6 +26,8 @@ export function logIn() {
       formErrorMessage('Wrong Password')
       return
     }
+    let id = usersList.find(user => user.name === name).id
+    localStorage.setItem('loged-user-id', id)
     location.hash = ''
   })
 }
