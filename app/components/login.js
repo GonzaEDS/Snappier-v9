@@ -1,5 +1,5 @@
 import { usersList } from '../helpers/models.js'
-import { formErrorMessage } from '../helpers/validation.js'
+import { formErrorMessage, hash } from '../helpers/validation.js'
 
 export function logIn() {
   document.querySelector('#logIn-form').addEventListener('submit', e => {
@@ -12,7 +12,7 @@ export function logIn() {
 
     const form = document.querySelector('form'),
       name = document.querySelector('input[name=name]').value,
-      password = document.querySelector('input[name=password]').value
+      password = hash(document.querySelector('input[name=password]').value)
     console.log(password)
 
     if (!usersList.some(user => user.name == name)) {
@@ -28,6 +28,7 @@ export function logIn() {
     }
     let id = usersList.find(user => user.name === name).id
     localStorage.setItem('loged-user-id', id)
-    location.hash = ''
+
+    location.hash = '#/user'
   })
 }

@@ -21,3 +21,10 @@ export function formErrorMessage(content) {
     form.appendChild(alert)
   }
 }
+
+export function hash(value) {
+  return Array.from(value).reduce(
+    (hash, char) => 0 | (31 * hash + char.charCodeAt(0)),
+    0
+  )
+}

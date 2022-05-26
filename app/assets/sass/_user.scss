@@ -1,0 +1,73 @@
+.user-page-img {
+    width: 9rem;
+    background: rgb(55, 90, 127);
+    border-radius: 50%;
+    filter: drop-shadow(0px 0px 1px white);
+}
+.user-data-card {  
+    border-radius: 5px;
+    border: 16px solid #17395dbf;  
+}
+
+.user-card button {
+    text-transform: uppercase;
+    font-size: small; 
+}
+
+.user-card .btn-danger {
+    color: #d7caca;
+    background-color: #85182b;
+    border-color: #dc354591;
+    &:hover {
+        color: #fff;
+        background-color: #831220;
+        border-color: #b02a378c;
+    }
+}
+
+.edit {
+    position: relative;
+    color: #a1acb7;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.05);
+        color: #becad6;
+    }
+
+}
+
+.edit-img {
+    @extend .edit;
+    bottom: 10px;
+    left: 60px;
+    
+}
+.edit-data {
+    @extend .edit;
+    align-self: end;
+    justify-self: end;
+    left: 13%;
+    bottom: 10%;
+
+}
+.user-data-card h2 {
+    font-size: calc(1rem + 0.8vw);
+}
+
+#password  {
+    position: relative;
+    top: 6px;
+}
+.change-img-popup {
+    position: absolute;
+    bottom: 33%;
+    background: black;
+    filter: drop-shadow(-1px 1px 2px white);
+}
+
+.user-data-card span {
+    font-size: 1.3rem;
+    color: #060e14;
+    font-weight: 600;
+}
+

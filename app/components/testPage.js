@@ -1,16 +1,13 @@
 import { usersList } from '../helpers/models.js'
+import { Navigation } from './navigation.js'
 
 export function testPage() {
   let logedUserIndex
-  console.log(localStorage.getItem('loged-user-id'))
 
   localStorage.getItem('loged-user-id') == null
     ? (logedUserIndex = null)
     : (logedUserIndex = Number(localStorage.getItem('loged-user-id') - 1))
 
-  console.log(logedUserIndex)
-
-  console.log('Hello World')
   const main = document.querySelector('main')
 
   const previous = document.querySelector('#testDiv')
@@ -24,7 +21,8 @@ export function testPage() {
     'd-flex',
     'align-items-center',
     'justify-content-center',
-    'gap-5'
+    'gap-5',
+    'flex-column'
   )
   container.id = 'testDiv'
   main.appendChild(container)
@@ -65,6 +63,7 @@ export function testPage() {
 
   logOut.addEventListener('click', () => {
     localStorage.removeItem('loged-user-id')
+    Navigation()
     testPage()
   })
 }

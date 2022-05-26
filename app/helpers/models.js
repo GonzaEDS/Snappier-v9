@@ -32,7 +32,6 @@ export class User {
     this.name = name
     this.hashedPassword = hashedPassword
     this.wallet = { cash: 10000 }
-    this.logedIn = true
     this.image = './app/assets/img/user.svg'
   }
   operation(type, coin, amount, price) {

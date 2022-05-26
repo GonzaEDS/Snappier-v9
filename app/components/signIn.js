@@ -1,5 +1,5 @@
 import { User, usersList } from '../helpers/models.js'
-import { formErrorMessage } from '../helpers/validation.js'
+import { formErrorMessage, hash } from '../helpers/validation.js'
 
 export function signIn() {
   // 1- seleccionar nombre de usuario y contraseña
@@ -38,16 +38,12 @@ export function signIn() {
       formErrorMessage('That username is already taken')
       return
     }
-
-    let id = usersList.length + 1
-    console.log(usersList.length + 1)
-    console.log(id)
-
-    usersList.push(new User(id, name, password, email))
-    console.log(usersList)
+    const hashedPassword = hash(password),
+      id = usersList.length + 1
+    usersList.push(new User(id, name, hashedPassword, email))
     localStorage.setItem('users', JSON.stringify(usersList))
     localStorage.setItem('loged-user-id', id)
 
-    location.hash = '#/testpage'
+    location.hash = '#/user'
   })
 }
