@@ -20644,7 +20644,7 @@ th:not(:first-child), td:not(:first-child) {
     position: sticky;
     left: 0;
     z-index: 2;
-    background-color: rgba(2, 9, 16, 0);
+    background-color: rgba(2, 9, 16, 0.9725490196);
   }
 
   .name {
