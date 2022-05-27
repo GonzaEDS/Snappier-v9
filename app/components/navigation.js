@@ -1,4 +1,3 @@
-import { usersList } from '../helpers/models.js'
 import { isLoged, getCurrentUser } from '../helpers/session.js'
 
 export function Navigation() {

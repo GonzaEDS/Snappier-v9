@@ -7,7 +7,8 @@ export function User() {
     displayEmail = document.querySelector('#email'),
     displayPassword = document.querySelector('#password'),
     leftUsername = document.querySelector('.user-card h2'),
-    userImg = document.querySelector('.user-page-img'),
+    // userImg = document.querySelector('.user-page-img'),
+    userImg = document.querySelector('.user-img'),
     logOutBtn = document.querySelector('#logout'),
     editImgBtn = document.querySelector('.edit-img'),
     hiddenPasswordStr = Array.from(`${user.hashedPassword}`)
@@ -18,7 +19,7 @@ export function User() {
   leftUsername.innerHTML = user.name
   displayEmail.innerHTML = user.email
   displayPassword.innerHTML = hiddenPasswordStr
-  userImg.src = user.image
+  userImg.style = `background-image: url(${user.image})`
 
   console.log(user.hashedPassword)
   console.log(
