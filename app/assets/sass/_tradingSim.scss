@@ -1,0 +1,16 @@
+.ts-container {
+    padding-top: 5rem;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 2fr 4fr 2fr;
+    grid-template-rows: 1fr 4fr 2fr;
+}
+.ts-header {
+    grid-column: 1/4;
+    grid-row: 1/2;
+}
+
+.ts-chart {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}

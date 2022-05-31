@@ -128,12 +128,19 @@ h1 {
     text-align: center;
 }
 
-select, #filter {
+select#sort {
+    padding: 0 0 0 7px;
+    width: 62%;
+}
+select#sort, #filter {
     word-wrap: normal;
     background: #5c5656;
     border-radius: 5px;
     font-weight: 600;
-    color: #1b1717;
+    color: #828989;
+    color: #c8c8c8bd;
+    border: none;
+    height: 30px;
     &:focus-visible {
         outline: #817373 auto 1px!important;
         outline-color: black!important;
@@ -158,15 +165,33 @@ section.coins-table {
 
 .table-tools {
     display: flex;
-    gap: calc(5vw - 0.5rem);
+    gap: calc(3.1vw - 0.2rem);
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-wrap: wrap;
 }
 
 .page-header h1 {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+    margin: 0;
 }
+
+label[for=sort] {
+    color: rgba(171, 168, 170, 0.831372549);
+    font-weight: 600;
+    font-size: 16px;
+    white-space: nowrap;
+}
+
+.sort-container {
+    display: flex;
+    gap: 5px;
+    width: 16.3rem;
+    align-items: center;
+}
+
+select#sort {
+    padding: 0 0 0 7px;
+    width: 80%;
+}
+
 

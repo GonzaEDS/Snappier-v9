@@ -3,6 +3,7 @@ import { logIn } from './login.js'
 import { signIn } from './signIn.js'
 import { testPage } from './testPage.js'
 import { User } from './user.js'
+import { chart } from './chart.js'
 
 export function Router() {
   let { hash } = location
@@ -10,7 +11,8 @@ export function Router() {
     htmlLogin = './app/views/login.html',
     htmlSignIn = './app/views/signin.html',
     htmlUser = './app/views/user.html',
-    htmlTestPage = './app/views/testpage.html'
+    htmlTestPage = './app/views/testpage.html',
+    htmlChart = './app/views/chart.html'
 
   switch (hash) {
     case '':
@@ -28,6 +30,9 @@ export function Router() {
     case '#/user':
       htmlRequest(htmlUser, User)
       break
+    case '#/chart':
+      htmlRequest(htmlChart, chart)
+      break
     default:
       htmlRequest(htmlDashboard, dashboard)
       break
@@ -39,8 +44,8 @@ function htmlRequest(route, callback) {
   main.innerHTML = null
   let xhr = new XMLHttpRequest()
   xhr.open('GET', route)
-  xhr.onload = () => {
-    main.innerHTML = xhr.responseText
+  xhr.onload = async () => {
+    main.innerHTML = await xhr.responseText
     callback()
   }
   xhr.send()

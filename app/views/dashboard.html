@@ -3,7 +3,7 @@
     <section class="coins-table col-lg-11">
       <div class="page-header pt-5">           
         <h1>Dashboard</h1>
-        <div class="table-tools">
+        <div class="table-tools pe-5 col-11 pe-md-0 col-md-12 justify-content-md-center">
           <div class="sort-container">
             <label for="sort">Sort by:</label>
             <select name="sort" id="sort">
@@ -16,10 +16,18 @@
             </select>
           </div>
           <div class="find-container">
+            <div class="filter-wrapper">
+                <div class="input-prefix reset">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="search-svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path>
+                    </svg>
+                </div>
+                <input type="text" name="filter" autocomplete="off" id="filter" placeholder="Find"></div>
+        </div>
+          <!-- <div class="find-container">
             <label for="filter">Find:</label>
             <input type="text" name="filter" autocomplete="off" id="filter">
           </div>
-        </div>
+        </div> -->
     </div>
 
         <div class="col-lg-12">
