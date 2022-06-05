@@ -1,6 +1,10 @@
 .ts-wallet {
-   
-    background-color: #1e2026;
+
+    table {
+        height: unset;
+    }
+
+
     tbody tr {
             background: #1b1d22;
         }
@@ -21,3 +25,31 @@
         filter: saturate(0);
     }
 }
+
+@media only screen and (min-width: 450px)  {
+    .ts-wallet {
+   
+        background-color: #1e2026;
+        tbody tr {
+                background: #1b1d22;
+            }
+        // table {
+        //     width: 100%;
+        //     color: #7d8389;
+        // }
+        // tr {
+        //     display: flex
+        // }
+        td, th {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+        }
+        tr td img {
+            filter: saturate(0);
+        }
+    }
+
+}
+

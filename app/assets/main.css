@@ -21078,6 +21078,7 @@ input#filter::placeholder {
   height: 16px;
 }
 .coins-list tbody, .ts-wallet tbody {
+  height: 100%;
   display: block;
   overflow-y: scroll;
   max-height: 36rem;
@@ -21472,8 +21473,8 @@ element.style {
   color: white;
 }
 
-.ts-wallet {
-  background-color: #1e2026;
+.ts-wallet table {
+  height: unset;
 }
 .ts-wallet tbody tr {
   background: #1b1d22;
@@ -21488,6 +21489,23 @@ element.style {
   filter: saturate(0);
 }
 
+@media only screen and (min-width: 450px) {
+  .ts-wallet {
+    background-color: #1e2026;
+  }
+  .ts-wallet tbody tr {
+    background: #1b1d22;
+  }
+  .ts-wallet td, .ts-wallet th {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+  .ts-wallet tr td img {
+    filter: saturate(0);
+  }
+}
 .ts-container {
   display: grid;
   grid-template-areas: "coins-list" "chart" "order" "wallet" "history";
@@ -21511,6 +21529,12 @@ element.style {
 
 .ts-wallet {
   grid-area: wallet;
+  min-height: 6rem;
+}
+
+.ts-history {
+  grid-area: history;
+  min-height: 6rem;
 }
 
 @media only screen and (min-width: 450px) {
