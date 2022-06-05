@@ -15,7 +15,7 @@ export function addLoader() {
   const loader = document.createElement('div')
   loader.classList.add('loader')
   loader.innerHTML = loader1
-  document.querySelector('body').appendChild(loader)
+  document.querySelector('.addLoader').appendChild(loader)
 }
 
 export function removeLoader() {

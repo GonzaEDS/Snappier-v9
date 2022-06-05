@@ -21,7 +21,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="search-svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path>
                     </svg>
                 </div>
-                <input type="text" name="filter" autocomplete="off" id="filter" placeholder="Find"></div>
+                <input type="text" name="filter" autocomplete="off" id="filter" placeholder="Search by name"></div>
         </div>
           <!-- <div class="find-container">
             <label for="filter">Find:</label>
@@ -30,9 +30,9 @@
         </div> -->
     </div>
 
-        <div class="col-lg-12">
+        <div class="dashboard-table col-lg-12">
             <div class="bs-component table-scroll">
-                <table class="table table-hover">
+                <table class="table table-hover ">
                     <thead>
                         <tr>
                             <th>Coin</th>
@@ -43,7 +43,7 @@
                             <th>Market cap rank</th>
                         </tr>
                     </thead>
-                    <tbody class="table-body">
+                    <tbody class="table-body addLoader">
 
                     </tbody>
                 </table>
@@ -54,11 +54,7 @@
       <div class="page-header pt-5 d-flex flex-column justify-content-center align-items-center gap-3">
         
         <h1>Calculator</h1>
-        <svg class="arrowSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Capa_1" x="0px" y="0px" width="45.513px" height="45.512px" viewBox="0 0 45.513 45.512" style="enable-background:new 0 0 45.513 45.512;" xml:space="preserve">
-            <g>
-                <path d="M44.275,19.739L30.211,5.675c-0.909-0.909-2.275-1.18-3.463-0.687c-1.188,0.493-1.959,1.654-1.956,2.938l0.015,5.903   l-21.64,0.054C1.414,13.887-0.004,15.312,0,17.065l0.028,11.522c0.002,0.842,0.338,1.648,0.935,2.242s1.405,0.927,2.247,0.925   l21.64-0.054l0.014,5.899c0.004,1.286,0.781,2.442,1.971,2.931c1.189,0.487,2.557,0.21,3.46-0.703L44.29,25.694   C45.926,24.043,45.92,21.381,44.275,19.739z"/>
-            </g>
-        </svg>
+        <img class="arrowSvg" src="./app/assets/img/goBackArrow.svg" alt="">
         <div class="calculatorContainer">
         
           <h1 class="selectedCoin"></h1>

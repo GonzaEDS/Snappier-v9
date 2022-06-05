@@ -1,0 +1,120 @@
+
+
+
+.coins-list, .ts-wallet {
+    height: 100%;
+    background-color: #1e2026;
+    // padding-bottom: 10px;
+    // height: 100%;
+    // overflow-y: scroll;
+    // max-height: 40rem;
+    table {
+        height: 88%;
+    }
+    table, thead, tr {
+        width: 98%;
+    }
+    tr {
+        display: flex;
+    } 
+    th {
+        color: rgb(132, 142, 156);
+        font-size: 12px;
+        text-transform: capitalize;
+        text-align: center;
+        width: 100%;
+    }
+    .cl-coin-td {
+        display: flex;
+        gap: 0px;
+        align-items: center;
+        justify-content: flex-start;
+    }
+    td {
+        width: 100%;
+        text-align: center;
+        font-size: 13px;
+        color: #848a8f;
+        img {
+        margin: 0 8px;
+        width: 16px;
+        height: 16px;
+        }
+    }
+    tbody {
+
+        display: block;
+        overflow-y: scroll;
+        max-height: 36rem;
+        overflow-x: hidden;
+  
+        tr {
+        background-color: #1b2b3c75;
+        margin: 4px auto;
+        }
+    }
+}
+
+.coins-list tbody tr:hover {
+    filter: brightness(1.2);
+}
+
+
+@media only screen and (min-width: 450px)  {
+    .coins-list, .ts-wallet {
+        height: 100%;
+        background-color: #1e2026;
+        // padding-bottom: 10px;
+        // height: 100%;
+        // overflow-y: scroll;
+        // max-height: 40rem;
+        table, thead, tr {
+            width: 98%;
+            margin: 0 auto;
+        }
+        tr {
+            display: flex;
+        } 
+        th {
+            color: rgb(132, 142, 156);
+            font-size: 12px;
+            text-transform: capitalize;
+            text-align: center;
+            width: 100%;
+        }
+        .cl-coin-td {
+            display: flex;
+            gap: 0px;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        td {
+            width: 100%;
+            text-align: center;
+            font-size: 13px;
+            color: #848a8f;
+            img {
+            margin: 0 8px;
+            width: 16px;
+            height: 16px;
+            }
+        }
+        tbody {
+    
+            display: block;
+            overflow-y: scroll;
+            max-height: 36rem;
+            overflow-x: hidden;
+      
+            tr {
+            background-color: #1b2b3c75;
+            margin: 4px auto;
+            }
+        }
+    }
+    
+    .coins-list tbody tr:hover {
+        filter: brightness(1.2);
+    }
+
+}

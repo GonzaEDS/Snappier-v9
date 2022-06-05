@@ -13,7 +13,8 @@ export function populateArray(coinsApiData, coinsArray) {
       coin['ath'],
       coin['ath_change_percentage'],
       coin['circulating_supply'],
-      coin['market_cap_rank']
+      coin['market_cap_rank'],
+      coin['price_change_percentage_24h']
     )
   })
 }

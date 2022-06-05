@@ -5,10 +5,15 @@ let vs_currency = 'usd',
   sparkline = 'false',
   dashboard_call = `${API_DOMAIN}/coins/markets?vs_currency=${vs_currency}&order=${order}&per_page=${per_page}&page=1&sparkline=${sparkline}`
 
-function getChartCall(coinId) {
+function getOhlcCall(coinId) {
   return `${API_DOMAIN}/coins/${coinId}/ohlc?vs_currency=${vs_currency}&days=365`
 }
+function getVolumeCall(coinId) {
+  return `${API_DOMAIN}/coins/${coinId}/market_chart?vs_currency=${vs_currency}&days=365&interval=daily`
+}
+
 export default {
   dashboard_call,
-  getChartCall
+  getOhlcCall,
+  getVolumeCall
 }

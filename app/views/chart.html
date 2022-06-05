@@ -1,15 +1,167 @@
 <div class="ts-container">
-    <header class="ts-header">
+    <aside class="ts-coins-list">
+        <div class="coins-list">
+            <div class="ts-box-header">
+                <div class="ts-title">Coins List</div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Coin</th>
+                        <th>Price</th>
+                        <th>24hs change</th>
+                    </tr>
+                </thead>
 
-    </header>
-    <aside class="ts-order">
+                <tbody>
+                </tbody>  
 
+                
+            </table>
+            
+        </div>
     </aside>
+    <!-- chart -->
+    <div id="container" class="ts-chart addLoader position-relative">
 
-    <div id="container" class="ts-chart">
-        
     </div>  
-    <div class="ts-coinsList">
+    <!-- wallet -->
+    <div class="ts-wallet">
+        <div class="ts-box-header">
+            <div class="ts-title">My Wallet</div>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Asset</th>
+                    <th>Amount</th>
+                    
+                </tr>
+            </thead>
+            <tbody class="wallet-cash">
+                <tr>
+                <td>
+                    <span class="material-icons">local_atm</span> Cash
+                </td>
+                <td class="user-cash">
+                    0000
+                </td>
+          
+            </tr>
+            </tbody>
+            <tbody class="wallet-coins">
+                <tr>
+                <td>
+                <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579">
+                <div>Bitcoin</div></td><td>29755</td>
+            </tr>  
+            </tbody>
+            
+                   
+        </table>
+
+
+    </div>
+    <!-- place order -->
+    <div class="ts-order">
+        <div name="orderform" class="order-forms" data-selected-coin="Bitcoin">
+            <div>
+                <div class="css-reset">
+                    <div class="flex-30" style="margin-bottom: 0px;">
+                        <div data-testid="crossTab">
+                            <div class="bottom">
+                                <div class="text" style="font-size: 14px;">Place Order</div>
+                            </div>
+                        </div>
+                    </div>
+ 
+
+                    <div class="css-15aumdt css-h598e2 ">
+                        <div class="proInnerFormWrap ">
+                            <div class="proInnerForm">
+                                <div class="balance css-kj3u3r">
+                                    <div style="display: flex; width: 100%; align-items: center; height: 16px;">
+                                        <div data-bn-type="text" class="avbl">Avbl</div>
+                                        <div data-bn-type="text" class="css-xc58v6">
+                                            <span data-bn-type="text" class="css-k4h8bj">0.00000000 USD</span>
+                                            <div style="display: flex; align-items: baseline;"><div style="margin-left: 12px;"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form novalidate="" autocomplete="off" id="autoFormBUY">
+                                    <div class="css-reset">
+                                        
+                                        <div>
+                                            <div class="quantity css-1oo4jp1">
+                                                <div class="css-17sjuxz">
+                                                    <div class="bn-input-prefix css-reset"><label data-bn-type="text" for="FormRow-BUY-quantity" class="css-10wa3hs">Amount</label></div>
+                                                    <input data-bn-type="input" data-operation="buy" lang="en" id="FormRow-BUY-quantity" name="quantity" class="orderForm-input" min="0.00001000" step="0.00001000" type="number" value="">
+                                                    <div class="bn-input-suffix css-reset"><label data-bn-type="text" for="FormRow-BUY-quantity" class="orderForm-input-labels">BTC</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="total css-1oo4jp1">
+                                                <div class="css-17sjuxz">
+                                                    <div class="bn-input-prefix css-reset"><label data-bn-type="text" for="FormRow-BUY-total" class="css-10wa3hs">Total</label></div>
+                                                    <input data-bn-type="input" lang="en" id="FormRow-BUY-total" data-operation="buy" name="total" class="orderForm-input" min="0.0000001" step="0.0000001" type="number" value="">
+                                                    <div class="bn-input-suffix css-reset"><label data-bn-type="text" for="FormRow-BUY-total" class="orderForm-input-labels">USD</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button data-bn-type="button" class="buySellButton css-1qka0vb" data-operation="buy" data-sensors-click="true" id="orderformBuyBtn" style="cursor: pointer;">Buy &nbsp;<span class="btn-coin-label">BTC</span></button>
+                                </form>
+                            </div>
+                            <div class="proInnerForm">
+                                <div class="balance css-kj3u3r">
+                                    <div style="display: flex; width: 100%; align-items: center; height: 16px;">
+                                        <div data-bn-type="text" class="avbl">Avbl</div>
+                                        <div data-bn-type="text" class="css-xc58v6">
+                                            <span data-bn-type="text" class="css-k4h8bj">0.00000000 &nbsp;<span class="btn-coin-label">BTC</span> </span>
+                                            <div style="display: flex; align-items: baseline;"><div style="margin-left: 12px;"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form novalidate="" autocomplete="off" id="autoFormSELL">
+                                    <div class="css-reset">
+                                        
+                                        <div>
+                                            <div class="quantity css-1oo4jp1">
+                                                <div class="css-17sjuxz">
+                                                    <div class="bn-input-prefix css-reset"><label data-bn-type="text" for="FormRow-SELL-quantity" class="css-10wa3hs">Amount</label></div>
+                                                    <input data-bn-type="input" lang="en" id="FormRow-SELL-quantity" data-operation="sell" name="quantity" class="orderForm-input" min="0.00001000" step="0.00001000" type="number" value="">
+                                                    <div class="bn-input-suffix css-reset"><label data-bn-type="text" for="FormRow-SELL-quantity" class="orderForm-input-labels">BTC</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="total css-1oo4jp1">
+                                                <div class="css-17sjuxz">
+                                                    <div class="bn-input-prefix css-reset"><label data-bn-type="text" for="FormRow-SELL-total" class="css-10wa3hs">Total</label></div>
+                                                    <input data-bn-type="input" lang="en" id="FormRow-SELL-total" data-operation="sell" name="total" class="orderForm-input" min="0.0000001" step="0.0000001" type="number">
+                                                    <div class="bn-input-suffix css-reset"><label data-bn-type="text" for="FormRow-SELL-total" class="orderForm-input-labels">USD</label></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button data-bn-type="button" class="buySellButton css-ty50m1" data-operation="sell" data-sensors-click="true" id="orderformSellBtn" style="cursor: pointer;">Sell &nbsp;<span class="btn-coin-label"> BTC</span> </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- history -->
+    <div class="ts-history">
+        <div class="ts-box-header">
+            <div class="ts-title">History</div>
+        </div>
 
     </div>
 </div>

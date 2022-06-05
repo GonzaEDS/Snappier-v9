@@ -16,6 +16,12 @@ $body-color: #fff;
 $font-family-sans-serif: 'Lato', sans-serif;
 
 // reset
+*, *::before, *::after{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    max-width: 100vw;
+}
 
 @media (min-width: 992px) {
     .px-lg-6 {
@@ -27,6 +33,17 @@ $font-family-sans-serif: 'Lato', sans-serif;
 body {
     background: linear-gradient(95deg, #020910 24%, #0f1820 77%);
     background: linear-gradient(95deg, #020910 24%, #0b1117 77%);
+}
+
+.scrollBar:hover::-webkit-scrollbar, ::-webkit-scrollbar {
+    width: 9px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(94, 102, 115);
+    border-radius: 3px;
+    height: 90px;
 }
 
 

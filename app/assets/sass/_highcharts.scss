@@ -15,7 +15,7 @@ $background-color: #ffffff !default;
 // Neutral colors, grayscale by default. The default colors are defined by mixing the
 // background-color with neutral, with a weight corresponding to the number in the name.
 $neutral-color-100: #000000 !default; // Strong text.
-$neutral-color-80: #333333 !default; // Main text and some strokes.
+$neutral-color-80: #798d98 !default; //#333333  Main text and some strokes.
 $neutral-color-60: #666666 !default; // Axis labels, axis title, connector fallback.
 $neutral-color-40: #999999 !default; // Credits text, export menu stroke.
 $neutral-color-20: #cccccc !default; // Disabled texts, button strokes, crosshair etc.
@@ -25,7 +25,7 @@ $neutral-color-3: #f7f7f7 !default; // Tooltip backgroud, button fills, map null
 
 // Colored, shades of blue by default
 $highlight-color-100: #003399 !default; // Drilldown clickable labels, color axis max color.
-$highlight-color-80: #335cad !default; // Selection marker, menu hover, button hover, chart border, navigator series.
+$highlight-color-80: #627283bf !default; //#335cad Selection marker, menu hover, button hover, chart border, navigator series.
 $highlight-color-60: #6685c2 !default; // Navigator mask fill.
 $highlight-color-20: #ccd6eb !default; // Ticks and axis line.
 $highlight-color-10: #e6ebf5 !default; // Pressed button, color axis min color.
@@ -825,7 +825,7 @@ text.highcharts-drilldown-data-label,
 /* Drag-panes module */
 .highcharts-axis-resizer {
     cursor: ns-resize;
-    stroke: black;
+    stroke: #7c8c9d;//black
     stroke-width: 2px;
 }
 

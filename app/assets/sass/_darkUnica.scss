@@ -2,19 +2,19 @@
 @import 'https://fonts.googleapis.com/css?family=Unica+One';
 
 // Chart background, point stroke for markers and columns etc
-$background-color: #2a2a2b;
+$background-color: #1b2b3c;//#2a2a2b
 
 // Colors for data series and points.
 $colors: #2b908f #90ee7e #f45b5b #7798BF #aaeeee #ff0066 #eeaaee #55BF3B #DF5353 #7798BF #aaeeee;
 
 // Neutral colors
 $neutral-color-100: #fff;
-$neutral-color-80: #E0E0E3;
+$neutral-color-80: #798d98;//#E0E0E3
 $neutral-color-60: #E0E0E3;
 $neutral-color-40: #666;
 $neutral-color-20: #606063;
 $neutral-color-10: #707073;
-$neutral-color-5: #505053;
+$neutral-color-5: #395571;//#505053
 
 // Colored, shades
 $highlight-color-100: #F0F0F3;
@@ -108,8 +108,8 @@ $scrollbar-track-border: #404043;
 }
 
 .highcharts-scrollbar .highcharts-scrollbar-thumb { 
-   fill: #808083;
-   stroke: #808083;
+   fill: #8ea8c3c9;//#808083
+   stroke:#a4b6ca ;//#808083
 }
 
 // Navigation
