@@ -21661,6 +21661,9 @@ element.style {
 .ts-wallet table {
   height: unset;
 }
+.ts-wallet tbody.wallet-coins {
+  max-height: calc(5rem + 18vw - 6vh);
+}
 .ts-wallet tbody tr {
   background: #1b1d22;
 }

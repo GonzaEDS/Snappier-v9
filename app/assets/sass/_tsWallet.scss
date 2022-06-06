@@ -1,7 +1,11 @@
 .ts-wallet {
+    
 
     table {
         height: unset;
+    }
+    tbody.wallet-coins {
+        max-height: calc(5rem + 18vw - 6vh);
     }
 
 
