@@ -1,8 +1,43 @@
 .loader {
     position: absolute;
-    top: 15%;
+    top: 5%;
     left: 25%;
     align-items: center;
     width: 50%;
     min-width: 5rem;
+    z-index: 999;
+}
+.ts-chart .loader {
+    width: 90%;
+    top: 0;
+    left: 3%;
+}
+
+.dashboard-table .loader {
+    all: unset;
+    position: absolute;
+    width: 90%;
+    z-index: 999;
+    top: 0;
+    left: 6%;
+}
+@media only screen and (min-width: 450px)  {
+    .ts-chart .loader {
+        top: 0;
+        left: 25%;
+        width: 50%;
+    }
+
+}
+
+@media only screen and (min-width: 850px)  {
+
+    .dashboard-table .loader {
+        all: unset;
+        position: absolute;
+        width: 35%;
+        top: 40%;
+        left: 32%;
+
+    }
 }
