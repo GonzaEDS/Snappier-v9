@@ -21667,7 +21667,7 @@ element.style {
 .ts-wallet tbody tr {
   background: #1b1d22;
 }
-.ts-wallet td:first-child {
+.ts-wallet td:first-child, .ts-wallet th:first-child {
   justify-content: flex-start;
   padding-left: 1rem;
 }

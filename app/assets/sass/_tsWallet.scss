@@ -19,10 +19,11 @@
     // tr {
     //     display: flex
     // }
-    td:first-child {
+    td:first-child, th:first-child {
         justify-content: flex-start;
         padding-left: 1rem;
     }
+    
 
     td, th {
         display: flex;
