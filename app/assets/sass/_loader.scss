@@ -8,9 +8,13 @@
     z-index: 999;
 }
 .ts-chart .loader {
+    position: relative;
     width: 90%;
     top: 0;
-    left: 3%;
+    left: 5%;
+}
+.ts-chart[role="region"] .loader {
+    position: absolute;
 }
 
 .dashboard-table .loader {
