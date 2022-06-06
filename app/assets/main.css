@@ -21772,6 +21772,11 @@ element.style {
     grid-column: 2/4;
   }
 }
+@media only screen and (min-width: 600px) and (min-height: 680px) {
+  .ts-container {
+    height: calc(100vh - 92px);
+  }
+}
 @media only screen and (min-width: 850px) {
   .ts-box-header {
     height: 30px;
@@ -21821,11 +21826,6 @@ element.style {
 @media only screen and (min-width: 992px) {
   .ts-container {
     height: 100vh;
-  }
-}
-@media only screen and (min-height: 680px) {
-  .ts-container {
-    height: calc(100vh - 92px);
   }
 }
 .highcharts-title, .highcharts-subtitle {
