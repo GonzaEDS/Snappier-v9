@@ -1,0 +1,64 @@
+.modal-box {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    background-color: #090e12e8;
+    display: flex;
+    align-items: flex-start;
+    padding-top: 5rem;
+    justify-content: center;
+}
+
+.modal-message {
+    text-align: center;
+    font-family: "Timmana", sans-serif;
+    font-weight: 600;
+    color: rgb(40, 41, 54);
+    width: 83%;
+    height: 28%;
+    background-color: #375A80;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    font-size: xx-large;
+    padding: 1rem;
+    background: linear-gradient(45deg, rgb(171, 203, 207), rgb(229, 237, 246));
+    padding: calc(2.5rem - 20px);
+    border-radius: 8px;
+    border: 20px solid rgba(55, 90, 127, 0.5882352941);
+}
+
+@media only screen and (min-width: 650px)  {
+    .modal-box {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 9999;
+        background-color: #090e12e8;
+        display: flex;
+        align-items: flex-start;
+        padding-top: 5rem;
+        justify-content: center;
+    }
+    
+    .modal-message {
+        // text-align: center;
+        // color: #ffffffc9;
+        width: 40%;
+        height: 51%;
+        // background-color: #375a7f;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // font-size: xx-large;
+        // padding: 1rem;
+    }
+
+}

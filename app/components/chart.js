@@ -6,6 +6,55 @@ import { getCurrentUser } from '../helpers/session.js'
 
 const user = getCurrentUser()
 export function chart() {
+  if (!getCurrentUser()) {
+    const body = document.querySelector('body'),
+      main = document.querySelector('main'),
+      modalBox = document.createElement('div'),
+      modalMessage = document.createElement('div'),
+      btnContainer = document.createElement('div'),
+      btn = document.createElement('button'),
+      span = document.createElement('span')
+
+    main.classList.add('position-relative')
+
+    body.style = 'overflow:hidden'
+
+    modalBox.classList.add('modal-box')
+    modalMessage.classList.add('modal-message')
+    modalMessage.innerHTML =
+      'You must be logged in to use the Snappier Trading simmulator'
+
+    btnContainer.classList.add('d-grid', 'submit-box', 'mb-2')
+    btnContainer.appendChild(btn)
+    btn.appendChild(span)
+    btn.setAttribute('href', '#/signin')
+    span.innerHTML = 'Create Account'
+    modalMessage.appendChild(btnContainer)
+
+    modalBox.appendChild(modalMessage)
+    main.insertBefore(modalBox, main.firstChild)
+
+    document.querySelectorAll('[href], button').forEach(element =>
+      element.addEventListener('click', () => {
+        main.classList.remove('position-relative')
+        body.setAttribute('style', '')
+        modalBox.remove()
+      })
+    )
+    btn.addEventListener('click', () => {
+      location.hash = '#/signin'
+    })
+  }
+
+  //   <div class="d-grid submit-box mb-2">
+  //               <button type="submit">
+  //                 <span>Create Account</span>
+  //               </button>
+  //             </div>
+  //   if (getCurrentUser()) {
+  //     document.querySelector('.modal-box').remove()
+
+  //   }
   ajax({
     url: coinGecko.dashboard_call,
     cbSuccess: res => {
@@ -14,8 +63,8 @@ export function chart() {
       placeOrder()
       orderEvents()
       console.log(usersList)
-      console.log(user)
-      populateWallet(user)
+      console.log(getCurrentUser())
+      populateWallet(getCurrentUser())
       parseChartData(coinObjects[0])
     }
   })
