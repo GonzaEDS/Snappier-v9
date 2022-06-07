@@ -34,13 +34,15 @@ export function chart() {
     modalBox.appendChild(modalMessage)
     main.insertBefore(modalBox, main.firstChild)
 
-    document.querySelectorAll('[href], button').forEach(element =>
-      element.addEventListener('click', () => {
-        main.classList.remove('position-relative')
-        body.setAttribute('style', '')
-        modalBox.remove()
-      })
-    )
+    document
+      .querySelectorAll('[href], .modal-message button')
+      .forEach(element =>
+        element.addEventListener('click', () => {
+          main.classList.remove('position-relative')
+          body.setAttribute('style', '')
+          modalBox.remove()
+        })
+      )
     btn.addEventListener('click', () => {
       location.hash = '#/signin'
     })
