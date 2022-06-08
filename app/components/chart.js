@@ -48,15 +48,6 @@ export function chart() {
     })
   }
 
-  //   <div class="d-grid submit-box mb-2">
-  //               <button type="submit">
-  //                 <span>Create Account</span>
-  //               </button>
-  //             </div>
-  //   if (getCurrentUser()) {
-  //     document.querySelector('.modal-box').remove()
-
-  //   }
   ajax({
     url: coinGecko.dashboard_call,
     cbSuccess: res => {
@@ -65,9 +56,11 @@ export function chart() {
       placeOrder()
       orderEvents()
       console.log(usersList)
+
       console.log(getCurrentUser())
       populateWallet(getCurrentUser())
       parseChartData(coinObjects[0])
+      console.log(getCurrentUser().wallet.coins[getSelectedCoin()] || 0)
     }
   })
 }
@@ -75,20 +68,16 @@ function orderEvents() {
   document.querySelectorAll('.buySellButton').forEach(button => {
     button.addEventListener('click', e => {
       e.preventDefault()
-      const type = e.currentTarget.dataset.operation
-
-      const selectedCoin = getSelectedCoin()
-
-      const quantityInput = document.querySelector(
-        `.orderForm-input[data-operation=${type}]`
-      )
-
-      const quantityInputValue = quantityInput.value
-
-      const totalInput = document.querySelector(
-        `input[name=total][data-operation=${type}]`
-      )
-      const totalInputValue = totalInput.value
+      const type = e.currentTarget.dataset.operation,
+        selectedCoin = getSelectedCoin(),
+        quantityInput = document.querySelector(
+          `.orderForm-input[data-operation=${type}]`
+        ),
+        quantityInputValue = quantityInput.value,
+        totalInput = document.querySelector(
+          `input[name=total][data-operation=${type}]`
+        ),
+        totalInputValue = totalInput.value
 
       user.userOperation(
         type,
@@ -96,6 +85,8 @@ function orderEvents() {
         quantityInputValue,
         totalInputValue
       )
+      avblUsd()
+      avblCoin()
 
       populateWallet(user)
       //   update usersList
@@ -138,17 +129,6 @@ function populateWallet(user) {
     newTr.appendChild(newCoinTd)
     newTr.appendChild(newAmountTd)
     coinsTbody.appendChild(newTr)
-
-    // <tbody class="wallet-coins">
-    // <tr>
-    //     <td>
-    //         <img src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579">
-    //         <div>Bitcoin</div>
-    //     </td>
-    //     <td>
-    //         29755
-    //     </td>
-    // </tr>
   })
 }
 
@@ -185,6 +165,7 @@ function populateCoinsList(coinsArray) {
         })
       document.querySelector('.order-forms').dataset.selectedCoin = coin.name
       clearInputs()
+      avblCoin()
       parseChartData(coin)
     })
   })
@@ -314,13 +295,28 @@ function highchart(data, coin) {
 }
 
 function placeOrder() {
-  document.querySelectorAll('input[name=quantity]').forEach(input => {
+  avblUsd()
+  avblCoin()
+  document.querySelectorAll('input[name]').forEach(input => {
     input.addEventListener('keyup', () => {
       const type = input.dataset.operation,
-        totalInput = document.querySelector(
-          `input[name=total][data-operation=${type}]`
+        name = input.name,
+        names = ['quantity', 'total'],
+        targetInput = document.querySelector(
+          `input[name=${
+            names[(names.indexOf(name) + 1) % 2]
+          }][data-operation=${type}]`
         )
-      totalInput.value = input.value * getSelectedCoin().current_price
+      name === 'quantity'
+        ? (targetInput.value = input.value * getSelectedCoin().current_price)
+        : (targetInput.value = input.value / getSelectedCoin().current_price)
+
+      if (String(targetInput.value) === '0') {
+        targetInput.value = ''
+      }
+
+      avblUsd()
+      avblCoin()
     })
   })
 }
@@ -336,4 +332,20 @@ function clearInputs() {
   document.querySelectorAll('input').forEach(input => {
     input.value = ''
   })
+}
+
+function avblUsd() {
+  let avblUsdNode = document.querySelector('#avblUSD')
+  avblUsdNode.innerHTML =
+    getCurrentUser().wallet.cash -
+    document.querySelector("[name='total'][data-operation='buy']").value
+}
+
+function avblCoin() {
+  const avblCoinNode = document.querySelector('#avblCoin'),
+    currentCoins = getCurrentUser().wallet.coins[getSelectedCoin().name] || 0
+
+  avblCoinNode.innerHTML =
+    currentCoins -
+    document.querySelector("[name='quantity'][data-operation='sell']").value
 }
