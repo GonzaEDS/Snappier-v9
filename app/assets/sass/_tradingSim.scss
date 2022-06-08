@@ -50,6 +50,7 @@
     }
     .ts-order {
         grid-area: order;
+        max-width: calc(100vw - 1.4rem);
 
     }
 

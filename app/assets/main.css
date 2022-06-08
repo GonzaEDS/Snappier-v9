@@ -21438,8 +21438,20 @@ input#filter::placeholder {
   display: flex;
 }
 
+.proInnerForm {
+  max-width: 50%;
+}
+
 .proInnerFormWrap > div:first-child {
-  padding-right: 30px;
+  padding-right: 15px;
+}
+
+.proInnerFormWrap > div:last-child {
+  padding-right: 15px;
+}
+
+span#avblUSD, span#avblCoin {
+  overflow: hidden;
 }
 
 .proInnerFormWrap .proInnerForm {
@@ -21777,6 +21789,7 @@ element.style {
 
 .ts-order {
   grid-area: order;
+  max-width: calc(100vw - 1.4rem);
 }
 
 .ts-wallet {

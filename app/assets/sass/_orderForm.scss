@@ -121,9 +121,20 @@
  .proInnerFormWrap {
     display: flex;
 }
- .proInnerFormWrap > div:first-child {
-    padding-right: 30px;
+.proInnerForm {
+    max-width: 50%;
 }
+.proInnerFormWrap > div:first-child {
+    padding-right: 15px;
+}
+.proInnerFormWrap > div:last-child {
+    padding-right: 15px;
+}
+
+span#avblUSD, span#avblCoin {
+    overflow: hidden;
+}
+
  .proInnerFormWrap .proInnerForm {
     flex: 1 1 0%;
 }
