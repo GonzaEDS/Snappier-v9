@@ -21447,7 +21447,7 @@ input#filter::placeholder {
 }
 
 .proInnerFormWrap > div:last-child {
-  padding-right: 15px;
+  padding-left: 15px;
 }
 
 span#avblUSD, span#avblCoin {
