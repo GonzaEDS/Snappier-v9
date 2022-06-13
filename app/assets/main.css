@@ -21281,7 +21281,7 @@ input#filter::placeholder {
 }
 
 .chart-container {
-  width: 100%;
+  width: 99%;
 }
 
 @media only screen and (min-width: 800px) {
