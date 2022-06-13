@@ -21281,7 +21281,7 @@ input#filter::placeholder {
 }
 
 .chart-container {
-  width: 80%;
+  width: 100%;
 }
 
 @media only screen and (min-width: 800px) {
@@ -21436,6 +21436,10 @@ input#filter::placeholder {
   .user-data-card ul .fa-pen-to-square {
     position: absolute;
     left: 90%;
+  }
+
+  .chart-container {
+    width: 80%;
   }
 }
 .ts-box-header {
