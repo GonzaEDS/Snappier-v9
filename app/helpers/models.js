@@ -1,3 +1,4 @@
+import { formatDate } from './history.js'
 //defines coins constructor
 export class Coin {
   constructor(
@@ -35,6 +36,7 @@ export class User {
     this.hashedPassword = hashedPassword
     this.wallet = { cash: 10000, coins: {} }
     this.image = './app/assets/img/user.svg'
+    this.history = []
   }
   userOperation(type, coin, amount, price) {
     const coinsValue = amount * price,
@@ -42,18 +44,18 @@ export class User {
 
     switch (type) {
       case 'buy':
-        if (this.wallet['cash'] < Number(price)) {
+        if (this.wallet['cash'] < price) {
           console.log('invalid operation')
           return 'invalid operation'
         } else {
           this.wallet['cash'] -= Number(price)
           if (this.wallet.coins.hasOwnProperty(coinName)) {
-            this.wallet.coins[coinName] += Number(amount)
+            this.wallet.coins[coinName] += amount
           } else {
             console.log(coinName)
-            this.wallet.coins[coinName] = Number(amount)
+            this.wallet.coins[coinName] = amount
           }
-          return 'operation successfull'
+          break
         }
       case 'sell':
         if (
@@ -69,6 +71,38 @@ export class User {
           this.wallet['cash'] += Number(price)
         }
     }
+    //record operation
+    this.history.push(
+      new OperationRecord(
+        new Date(),
+        coin.name,
+        coin.symbol,
+        type,
+        amount,
+        coin.current_price,
+        price
+      )
+    )
+  }
+}
+
+export class OperationRecord {
+  constructor(
+    time,
+    coinName,
+    coinSymbol,
+    type,
+    amount,
+    price_unit,
+    price_total
+  ) {
+    this.time = time
+    this.coinName = coinName
+    this.coinSymbol = coinSymbol
+    this.type = type
+    this.amount = amount
+    this.price_unit = price_unit
+    this.price_total = price_total
   }
 }
 

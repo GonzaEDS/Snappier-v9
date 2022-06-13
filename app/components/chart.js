@@ -1,8 +1,9 @@
-import { coinObjects, User, usersList } from '../helpers/models.js'
+import { coinObjects, usersList, OperationRecord } from '../helpers/models.js'
 import { ajax } from '../helpers/ajax.js'
 import coinGecko from '../helpers/coinGeckoApi.js'
 import { populateArray } from '../helpers/table.js'
 import { getCurrentUser } from '../helpers/session.js'
+import { formatDate } from '../helpers/history.js'
 
 const user = getCurrentUser()
 export function chart() {
@@ -51,20 +52,34 @@ export function chart() {
   ajax({
     url: coinGecko.dashboard_call,
     cbSuccess: res => {
+      let newData = res.map(coin =>
+        (({ name, symbol, id }) => ({ name, symbol, id }))(coin)
+      )
+      console.log(newData)
+      //   function download(content, fileName, contentType) {
+      //     var a = document.createElement("a");
+      //     var file = new Blob([content], {type: contentType});
+      //     a.href = URL.createObjectURL(file);
+      //     a.download = fileName;
+      //     a.click();
+      // }
+      // download(jsonData, 'json.txt', 'text/plain');
+
       populateArray(res, coinObjects)
       populateCoinsList(coinObjects)
       placeOrder()
-      orderEvents()
+      orderEvents(getCurrentUser())
       console.log(usersList)
 
       console.log(getCurrentUser())
       populateWallet(getCurrentUser())
+      populateHistory(getCurrentUser())
       parseChartData(coinObjects[0])
       console.log(getCurrentUser().wallet.coins[getSelectedCoin()] || 0)
     }
   })
 }
-function orderEvents() {
+function orderEvents(user) {
   document.querySelectorAll('.buySellButton').forEach(button => {
     button.addEventListener('click', e => {
       e.preventDefault()
@@ -73,11 +88,11 @@ function orderEvents() {
         quantityInput = document.querySelector(
           `.orderForm-input[data-operation=${type}]`
         ),
-        quantityInputValue = quantityInput.value,
+        quantityInputValue = Number(quantityInput.value),
         totalInput = document.querySelector(
           `input[name=total][data-operation=${type}]`
         ),
-        totalInputValue = totalInput.value
+        totalInputValue = Number(totalInput.value)
 
       user.userOperation(
         type,
@@ -88,7 +103,15 @@ function orderEvents() {
       avblUsd()
       avblCoin()
 
-      populateWallet(user)
+      populateWallet(getCurrentUser())
+      populateHistory(getCurrentUser())
+
+      //// TODO UPDATE HISTORY
+      console.log(selectedCoin)
+      console.log(user)
+
+      ////
+
       //   update usersList
       usersList.splice(
         Number(localStorage.getItem('loged-user-id') - 1),
@@ -168,6 +191,36 @@ function populateCoinsList(coinsArray) {
       avblCoin()
       parseChartData(coin)
     })
+  })
+}
+
+function populateHistory(user) {
+  const history = user.history,
+    historyTbody = document.querySelector('.ts-history tbody')
+  while (historyTbody.firstChild) {
+    historyTbody.removeChild(historyTbody.firstChild)
+  }
+  history.forEach(operation => {
+    const newRow = document.createElement('tr'),
+      cells = [
+        'time',
+        'type',
+        'coinName',
+        'amount',
+        'price_unit',
+        'price_total'
+      ]
+    cells.forEach((cell, index) => {
+      const newTd = document.createElement('td')
+      let content = operation[cell]
+      if (index == 0) {
+        content = formatDate(new Date(operation[cell]))
+      }
+      newTd.innerHTML = content
+      newTd.classList.add(`${cell}Cell`)
+      newRow.appendChild(newTd)
+    })
+    historyTbody.appendChild(newRow)
   })
 }
 

@@ -1,4 +1,16 @@
+.ts-container {
+    th {
+        color: rgb(132, 142, 156);
+        font-size: 12px;
+        text-transform: capitalize;
+        text-align: center;
+        width: 100%;
+    }
 
+    tr {
+        display: flex;
+    } 
+}
 
 
 .coins-list, .ts-wallet {
@@ -46,7 +58,7 @@
 
         display: block;
         overflow-y: scroll;
-        max-height: 36rem;
+        max-height: 100%;
         overflow-x: hidden;
   
         tr {
@@ -104,7 +116,7 @@
     
             display: block;
             overflow-y: scroll;
-            max-height: 36rem;
+            // max-height: 36rem;
             overflow-x: hidden;
       
             tr {
@@ -116,6 +128,43 @@
     
     .coins-list tbody tr:hover {
         filter: brightness(1.2);
+    }
+
+}
+
+
+td.cl-price-td {
+    text-align: left;
+    /* display: block; */
+    max-width: 4rem;
+    overflow-x: scroll;
+    transform: translate(18px, 0px);
+}
+td.cl-change-td {
+    text-align: right;
+    transform: translate(calc(-3px - 4.5vw), 0px);
+}
+
+@media only screen and (min-width: 400px)  {
+    td.cl-change-td {
+        transform: translate(calc(-3px - 8vw), 0px);
+    }
+
+}
+@media only screen and (min-width: 600px)  {
+    td.cl-price-td {
+
+        transform: translate(22px, 0px);
+    }
+    td.cl-change-td {
+        transform: translate(calc(5px - 2.5vw), 0px);
+    }
+
+
+}
+@media only screen and (min-width: 950px)  {
+    td.cl-change-td {
+        transform: translate(calc(16px - 2.5vw), 0px);
     }
 
 }

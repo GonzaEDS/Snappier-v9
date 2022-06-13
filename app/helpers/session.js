@@ -21,6 +21,7 @@ export function getCurrentUser() {
       currentUser.email
     )
     toUser.wallet = currentUser.wallet
+    toUser.history = currentUser.history
   }
   // let personFromStorage = JSON.parse(localStorage.getItem('person')) as Person;
 

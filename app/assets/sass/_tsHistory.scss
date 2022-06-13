@@ -1,0 +1,47 @@
+.table-container {
+    overflow-x: scroll;
+    margin: 0 auto;
+    width: 87%;
+    /* background: red; */
+    height: calc(100% - 30px);
+    /* padding: 0 2rem; */
+}
+.ts-history {
+    td {
+        font-size: 13px;
+        color: #767d85;
+    }
+    th, td {
+        display: flex;
+    }
+} 
+
+.ts-history {
+    tbody tr {
+        margin-bottom: 6px;
+    }
+
+    .timeCell {
+        min-width: 11rem;
+    }
+    .typeCell {
+        min-width: 4rem;
+    }
+    .coinNameCell {
+        min-width: 7rem;
+    }
+    .amountCell {
+        min-width: 11rem;
+    }
+    .price_unitCell {
+        min-width: 6rem;
+    }
+    .price_totalCell {
+        min-width: 9rem;
+    }
+
+}
+    
+    
+
+
