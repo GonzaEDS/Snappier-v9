@@ -133,7 +133,10 @@ export function User() {
 
 function getColorFromSymbol(coinName) {
   const symbol = getSymbol(coinName),
-    symbolArray = symbol.split('')
+    symbolArray = symbol.split(''),
+    valuesArray = symbolArray.map(letter => letter.charCodeAt(0))
+  let indexValue = Object.keys(getCurrentUser().wallet.coins).indexOf(coinName)
+
   // let rgbColor = 'rgb('
   // symbolArray.forEach((letter, index) => {
   //   letter.charCodeAt(0) % 2 === 0
@@ -148,14 +151,30 @@ function getColorFromSymbol(coinName) {
   //   i !== 2 ? (rgbColor += ',') : (rgbColor += ')')
   // }
   // return rgbColor
-  let r = symbol[0].charCodeAt(0)
-  r % 2 == 0 ? (r += 75) : (r -= 65)
-  let g = symbol[1].charCodeAt(0)
-  g % 2 == 0 ? (g += 75) : (g -= 65)
-  let b = symbol[2].charCodeAt(0)
-  b % 2 == 0 ? (b += 75) : (b -= 65)
-  g - b > 10 ? (b += 65) : (b += 10)
-  return `rgb(${r},${g},${b})`
+  // let r = symbol[0].charCodeAt(0)
+  // r % 2 == 0 ? (r += 75) : (r -= 65)
+  // let g = symbol[1].charCodeAt(0)
+  // g % 2 == 0 ? (g += 75) : (g -= 65)
+  // let b = symbol[2].charCodeAt(0)
+  // b % 2 == 0 ? (b += 75) : (b -= 65)
+  // g - b > 10 ? (b += 65) : (b += 10)
+  // return `rgb(${r},${g},${b})`
+  // let h = (valuesArray.reduce((a, b) => a + b, 100) + 10) % 356
+  // h % 2 === 0 ? (h += 30) : (h -= 30)
+  const numOfCoins = Object.keys(getCurrentUser().wallet.coins).length
+  let ratio = 360 / numOfCoins
+  console.log(
+    coinName +
+      ' ' +
+      indexValue +
+      ' ' +
+      '+1' +
+      '*' +
+      ratio +
+      `hsl(${indexValue * ratio}deg 80% 57%)`
+  )
+
+  return `hsl(${(indexValue * ratio + 33) % 360}deg 70% 50%)`
 }
 
 function getSymbol(coinNameInput) {
