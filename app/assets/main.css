@@ -21951,10 +21951,17 @@ element.style {
 }
 
 .ts-wallet table {
-  height: unset;
+  overflow: scroll;
+}
+.ts-wallet table {
+  height: calc(100% - 30px);
 }
 .ts-wallet tbody.wallet-coins {
-  max-height: calc(5rem + 18vw - 6vh);
+  height: calc(100% - 33px);
+  /* max-height: calc(5rem + 18vw - 6vh); */
+}
+.ts-wallet tbody.wallet-cash {
+  height: 33px;
 }
 .ts-wallet tbody tr {
   background: #1b1d22;
@@ -22007,14 +22014,30 @@ element.style {
     display: block;
     text-align: left;
   }
+  .ts-wallet table {
+    height: calc(100% - 30px);
+  }
+  .ts-wallet tbody.wallet-coins {
+    height: calc(100% - 33px);
+    /* max-height: calc(5rem + 18vw - 6vh); */
+  }
+  .ts-wallet tbody.wallet-cash {
+    height: 33px;
+  }
 }
 .table-container {
-  overflow-x: scroll;
+  overflow: auto;
   margin: 0 auto;
-  width: 87%;
+  width: 100%;
   /* background: red; */
   height: calc(100% - 30px);
-  /* padding: 0 2rem; */
+  /*padding: 0 1.3rem; */
+  padding-left: 1rem;
+}
+.table-container table thead {
+  top: 0;
+  position: sticky;
+  background: #1e2026;
 }
 
 .ts-history td {
@@ -22023,6 +22046,7 @@ element.style {
 }
 .ts-history th, .ts-history td {
   display: flex;
+  width: unset;
 }
 
 .ts-history tbody tr {
@@ -22105,7 +22129,7 @@ element.style {
   display: grid;
   grid-template-areas: "coins-list" "chart" "order" "wallet" "history";
   grid-template-columns: 1fr;
-  grid-template-rows: 50vh repeat(4, auto);
+  grid-template-rows: 50vh repeat(2, auto) repeat(2, 34vh);
   grid-gap: 1rem;
   padding-top: 1rem;
 }
@@ -22141,7 +22165,7 @@ element.style {
     padding: 1.5rem 0.7rem;
   }
 }
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 665px) {
   .ts-container > * {
     max-width: unset;
   }
@@ -22151,7 +22175,7 @@ element.style {
     grid-gap: 1rem;
     padding-top: 5rem;
     display: grid;
-    /* height: 100vh; */
+    height: 120vh;
     grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 6fr 3fr 3fr;
     padding: 1rem;
@@ -22185,12 +22209,12 @@ element.style {
     grid-column: 4/8;
   }
 }
-@media only screen and (min-width: 600px) and (min-height: 680px) {
+@media only screen and (min-width: 665px) and (min-height: 680px) {
   .ts-container {
     height: calc(100vh - 92px);
   }
 }
-@media only screen and (min-width: 950px) {
+@media only screen and (min-width: 1000px) {
   .ts-box-header {
     height: 30px;
   }

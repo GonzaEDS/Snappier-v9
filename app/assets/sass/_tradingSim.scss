@@ -38,7 +38,7 @@
         "wallet"
         "history";
     grid-template-columns: 1fr;
-    grid-template-rows: 50vh repeat(4, auto);
+    grid-template-rows: 50vh repeat(2, auto) repeat(2, 34vh);
     grid-gap: 1rem;
     padding-top: 1rem;
     tr div {
@@ -76,7 +76,7 @@
    
 }
 
-@media only screen and (min-width: 600px)  {
+@media only screen and (min-width: 665px)  {
     .ts-container > * {
         max-width: unset;
     }
@@ -85,7 +85,7 @@
         grid-gap: 1rem;
         padding-top: 5rem;
         display: grid;
-        /* height: 100vh; */
+        height: 120vh; 
         grid-template-columns: repeat(7, 1fr);
         grid-template-rows: 6fr 3fr 3fr;
         padding: 1rem;
@@ -132,7 +132,7 @@
    
 
 
-@media only screen and (min-width: 950px)  {
+@media only screen and (min-width: 1000px)  {
     .ts-box-header {
         height: 30px;
     }

@@ -1,10 +1,17 @@
 .table-container {
-    overflow-x: scroll;
+    // overflow-x: scroll;
+    overflow: auto;
     margin: 0 auto;
-    width: 87%;
+    width: 100%;
     /* background: red; */
     height: calc(100% - 30px);
-    /* padding: 0 2rem; */
+    /*padding: 0 1.3rem; */
+    padding-left: 1rem;
+    table thead {
+        top: 0;
+        position: sticky;
+        background: #1e2026;
+    }
 }
 .ts-history {
     td {
@@ -13,6 +20,7 @@
     }
     th, td {
         display: flex;
+        width: unset;
     }
 } 
 
