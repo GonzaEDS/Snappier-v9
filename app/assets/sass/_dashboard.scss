@@ -1,6 +1,8 @@
+
 .coin-logo {
     width: 10%;
 }
+
 td img {
     width: 1.5rem;
 }
@@ -12,7 +14,6 @@ tbody tr  {
 tbody tr:hover {
     background-color: #645b5b;
 } 
-
 
 tr.no-matches-row {
     font-size: calc(0.5rem + 2vw);
@@ -35,28 +36,60 @@ tr.no-matches-row {
     display: none!important;
 }
 
+
+
+
 /* calculator */
+
+
 .calculator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 2rem;
-}
-
-.calculatorContainer {
-    padding: 0.5rem 1rem;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr 1fr;    align-items: center;
-    justify-items: center;
-    
-    width: fit-content;
-    border: 1px solid white;
-    border-radius: 1rem;
-    background-color: #9d969658;
+    width: 100%;
+    height: 100%;
+    /* grid-template-columns: repeat(2, auto); */
+    grid-template-rows: repeat(2,auto);
+    /* flex-direction: column; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    padding: 1rem;
 
+    .page-header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+    }
+    .calculator-header {
+        background-color: #161a1e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(132, 142, 156);
+        height: 33px;
+    }
+    .calculatorContainer {
+        padding: 0.2rem 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: 1fr 1fr 1fr;
+        align-items: center;
+        justify-items: center;
+        width: fit-content;
+        border: 1px solid #323643;
+        /* border-radius: 1rem; */
+        background-color: rgb(30 32 38);
+        color: #dee2e9;
 }
+    }
+    .selectedCoin, .usdTitle {
+        font-size: 1.9rem;
+        font-weight: 300;
+    }
+    
+
+
+
 
 .selectedCoin {
     grid-column: 1;
@@ -86,7 +119,7 @@ tr.no-matches-row {
 }
 
 .calculator img, .calculator svg {
-    width: 5rem;
+    width: 4rem;
 }
 
 
@@ -97,13 +130,14 @@ tr.no-matches-row {
 
 }
 
-.arrowSvg {
+.calculator .arrowSvg {
     fill: rgb(255, 255, 255);
     transform: rotate(180deg);
     transition: transform 0.3s;
     cursor: pointer;
-
+    width: 2.5rem;
 }
+
 .arrowSvg:hover {
     transform: rotate(180deg) scale(1.1);
 }
@@ -111,14 +145,54 @@ tr.no-matches-row {
 input.coinInput {
     text-align: center;
     font-weight: 500;
-    color: #292727;
+    color: #faf8f8;
     width: 40%;
+    background: #2b2f36e6;
+    background: #2a2d35;
+    border: solid 1px #4a4e58;
+    border-radius: 3px;
 }
 p.result {
     font-size: 1.2rem;
     font-weight: 500;
 }
 
+
+//coin-info 
+
+.coin-info {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .coin-info-wrapper {
+        width: 100%;
+    }
+    .coin-info-header {
+        background-color: #161a1e;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgb(132, 142, 156);
+        height: 33px;
+    }
+    .coin-info-body {
+
+        width: 100%;
+        min-height: 5rem;
+        background-color: #1e2026;
+        border: 1px solid #323643;
+        padding: 0.5rem 2rem;
+        font-weight: 300;
+        font-size: 1.2rem;
+        text-align: justify;
+        color: #cfc6c6;
+        a {
+            color: #82a8cf;
+        }
+    }
+
+}
 
 // reordenar
 .navbar-brand {
@@ -160,6 +234,8 @@ section.coins-table {
     margin-bottom: 1rem;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 2vw;
 }
 
@@ -178,7 +254,7 @@ section.coins-table {
 label[for=sort] {
     color: rgba(171, 168, 170, 0.831372549);
     font-weight: 600;
-    font-size: 16px;
+    font-size: 1rem;
     white-space: nowrap;
 }
 
@@ -192,6 +268,21 @@ label[for=sort] {
 select#sort {
     padding: 0 0 0 7px;
     width: 80%;
+}
+
+
+@media only screen and (min-width: 700px){
+
+    .dashboard-table {
+        width: 90%;
+    }
+    .coin-info {
+        .coin-info-wrapper {
+            width: 90%;
+        }
+    }
+
+
 }
 
 

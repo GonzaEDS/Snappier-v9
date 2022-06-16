@@ -1,5 +1,5 @@
 
-<div class="container">
+<div class="dashboard-container">
     <section class="coins-table col-lg-11">
       <div class="page-header">           
         <h1>Dashboard</h1>
@@ -18,58 +18,67 @@
           <div class="find-container">
             <div class="filter-wrapper">
                 <div class="input-prefix reset">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="search-svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path>
-                    </svg>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" class="search-svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M11 6a5 5 0 110 10 5 5 0 010-10zm0-3a8 8 0 017.021 11.838l3.07 3.07-1.59 1.591-1.591 1.591-3.07-3.07A8 8 0 1111 3z" fill="currentColor"></path></svg>
                 </div>
-                <input type="text" name="filter" autocomplete="off" id="filter" placeholder="Search by name"></div>
-        </div>
-          <!-- <div class="find-container">
-            <label for="filter">Find:</label>
-            <input type="text" name="filter" autocomplete="off" id="filter">
-          </div>
-        </div> -->
-    </div>
-
-        <div class="dashboard-table col-lg-12">
-            <div class="bs-component table-scroll">
-                <table class="table table-hover ">
-                    <thead>
-                        <tr>
-                            <th>Coin</th>
-                            <th>Current price</th>
-                            <th>ATH</th>
-                            <th>ATH change percentage</th>
-                            <th>Circulating Supply</th>
-                            <th>Market cap rank</th>
-                        </tr>
-                    </thead>
-                    <tbody class="table-body addLoader">
-
-                    </tbody>
-                </table>
+                <input type="text" name="filter" autocomplete="off" id="filter" placeholder="Search by name">
             </div>
+          </div>
         </div>
-    </section>
-    <section class="calculator displayNone">
-      <div class="page-header pt-5 d-flex flex-column justify-content-center align-items-center gap-3">
-        
-        <h1>Calculator</h1>
-        <img class="arrowSvg" src="./app/assets/img/goBackArrow.svg" alt="">
-        <div class="calculatorContainer">
-        
-          <h1 class="selectedCoin"></h1>
-          <img class="coinLogo" src="" alt="selected coin logo">
-          <input class="coinInput" type="number" step="0.01">
 
-          <h1 class="usdTitle">USD</h1>
+        <div class="dashboard-table">
+          <div class="bs-component table-scroll">
+              <table class="table table-hover ">
+                  <thead>
+                      <tr>
+                          <th>Coin</th>
+                          <th>Current price</th>
+                          <th>ATH</th>
+                          <th>ATH change percentage</th>
+                          <th>Circulating Supply</th>
+                          <th>Market cap rank</th>
+                      </tr>
+                  </thead>
+                  <tbody class="table-body addLoader">
 
-          <img class="calculator-svg" src="./app/assets/img/dollar.svg" alt="dollar sign">
-            
-          <p class="result m-0">00</p>
-
-        </div>
+                  </tbody>
+              </table>
+          </div>
       </div>
     </section>
-    <div class="coins-list">
-    </div>
+    <section class="calculator displayNone">
+        <div class="page-header">
+  
+          
+  
+          <img class="arrowSvg" src="./app/assets/img/goBackArrow.svg" alt="">
+      <div class="calculator-wraper"> 
+          <div class="calculator-header"> Price Calculator</div>
+      <div class="calculatorContainer">
+      
+            <h1 class="selectedCoin">Bitcoin</h1>
+            <img class="coinLogo" src="https://assets.coingecko.com/coins/images/1/large/bitcoin.png?1547033579" alt="selected coin logo">
+            <input class="coinInput" type="number" step="0.01">
+  
+            <h1 class="usdTitle">USD</h1>
+  
+            <img class="calculator-svg" src="./app/assets/img/dollar.svg" alt="dollar sign">
+              
+            <p class="result m-0">$ 21062.00</p>
+  
+          </div>
+        </div>
+      </div>
+      <div class="coin-info">
+        <div class="coin-info-wrapper">
+          <div class="coin-info-header">
+            Coin Description
+          </div>
+          <div class="coin-info-body">
+            
+          </div>
+        </div>
+
+      </div>
+
+    </section>
 </div>
