@@ -11,6 +11,7 @@
     
     margin: 0;
     min-width: 0;
+    height: 100%;
 }
 
 .flex-30  {
@@ -24,7 +25,8 @@
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(132, 142, 156);
     text-align: center;
     background-color: rgb(22, 26, 30);
@@ -43,7 +45,8 @@
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(132, 142, 156);
     text-align: center;
     background-color: rgb(22, 26, 30);
@@ -77,7 +80,8 @@
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(132, 142, 156);
     text-align: center;
     background-color: rgb(22, 26, 30);
@@ -94,36 +98,46 @@
         transform: none;
     }
 }
-// .css-h598e2 {
-    
-//     margin: 0px;
-//     min-width: 0px;
-//     z-index: 1;
-//     font-size: 10px;
-//     color: rgb(234, 236, 239);
-//     position: relative;
-//     user-select: none;
-//     border-top-left-radius: 10px;
-//     border-top-right-radius: 10px;
-//     background: #1e2026;
-//     transition: transform 0.3s ease-in-out 0s;
-//     transform: translate3d(0px, 0px, 0px);
-// }
 
-.css-15aumdt {
-    
+.form-wrapper {
     margin: 0px;
     min-width: 0px;
     padding: 8px 16px 13px;
+    height: calc(100% - 30px);
 }
 
 
- .proInnerFormWrap {
+.proInnerFormWrap {
     display: flex;
+    height: 100%;
 }
 .proInnerForm {
     max-width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    gap: calc(2px + 1vh);
 }
+
+#autoFormBUY, #autoFormSELL {
+    height: calc(100% - 3px - 16px);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+}
+.order-inputs-wrapper {
+    height: calc(65%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 7px;
+}
+
 .proInnerFormWrap > div:first-child {
     padding-right: 15px;
 }
@@ -141,14 +155,12 @@ span#avblUSD, span#avblCoin {
 
  .proInnerFormWrap .proInnerForm .balance {
     margin-bottom: 9px;
-}
-.css-kj3u3r {
-    
     margin: 0px;
     min-width: 0px;
     padding-top: 0px;
     display: flex;
     font-size: 13px;
+    width: 100%;
 }
 
 .avbl {
@@ -173,20 +185,17 @@ span#avblUSD, span#avblCoin {
     height: 16px;
 }
 
-.css-1oo4jp1 {
-    margin: 5px 0px 7px;
+.order-form-input {
+    /* margin: 5px 0px 7px; */
     min-width: 0px;
     width: 100%;
-    
     border-radius: 4px;
-    height: 34px;
+    // height: calc(20px + 2.75vh);
+    height: calc(18px + 1.5vh + 0.9vw);
     line-height: 30px;
     background-color: rgba(43, 47, 54, 0.9);
 }
 
- .proInnerFormWrap .proInnerForm .quantity {
-    margin-top: 8px;
-}
 
 .css-17sjuxz {
     
@@ -201,15 +210,16 @@ span#avblUSD, span#avblCoin {
     border-radius: 4px;
     width: 100%;
     height: 100%;
-    font-size: 14px;
-    /* height: 0rem; */
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
 }
 
 .css-17sjuxz .bn-input-prefix {
     flex-shrink: 0;
     margin-left: 8px;
     min-width: 40px;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(183, 189, 198);
 }
 
@@ -244,14 +254,16 @@ input.orderForm-input[type=number] {
 .css-10wa3hs {
     margin: 0px;
     min-width: 0px;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(132, 142, 156);
     display: inline-block;
     text-align: right;
 }
 .css-17sjuxz input {
     color: rgb(234, 236, 239);
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     padding-left: 4px;
     padding-right: 4px;
     text-align: right;
@@ -272,7 +284,8 @@ input.orderForm-input[type=number] {
 .css-17sjuxz .bn-input-suffix {
     flex-shrink: 0;
     margin-right: 8px;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(132, 142, 156);
 }
 
@@ -280,7 +293,8 @@ input.orderForm-input[type=number] {
     
     margin: 0px;
     min-width: 0px;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(234, 236, 239);
     display: inline-block;
     text-align: right;
@@ -289,12 +303,13 @@ input.orderForm-input[type=number] {
 .css-17sjuxz .bn-input-suffix {
     flex-shrink: 0;
     margin-right: 8px;
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     color: rgb(132, 142, 156);
 }
 
-.css-1qka0vb {
-    margin: 8px 0px 0px;
+.order-form-btn {
+    // margin: 8px 0px 0px;
     appearance: none;
     user-select: none;
     cursor: pointer;
@@ -307,7 +322,8 @@ input.orderForm-input[type=number] {
     -webkit-box-pack: center;
     justify-content: center;
     
-    font-size: 14px;
+    font-size: 0.87rem;
+    font-size: calc(0.8rem + 0.2vw);
     font-family: inherit;
     font-weight: 500;
     text-align: center;
@@ -318,49 +334,38 @@ input.orderForm-input[type=number] {
     min-width: 52px;
     word-break: keep-all;
     min-height: 21px;
-    background-color: rgb(12 150 100);
+    // background-color: rgb(12 150 100);
     width: 100%;
-    height: 34px;
+    // height: 34px;
     border: none;
     border-radius: 4px;
     color: white;
+    // min-height: 35px;
+    height: calc(22px + 2.75vh);
+    height: calc(18px + 1.9vh + 0.9vw);
+}
+
+#orderformBuyBtn {
+    background-color: rgb(12 150 100);
+
+}
+#orderformSellBtn {
+    background-color: rgb(179 55 71)
 }
 
 element.style {
     cursor: pointer;
 }
-
-.css-ty50m1 {
-    margin: 8px 0px 0px;
-    appearance: none;
-    user-select: none;
-    cursor: pointer;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-flex;
-    -webkit-box-align: center;
-    align-items: center;
-    -webkit-box-pack: center;
-    justify-content: center;
-    
-    font-size: 14px;
-    font-family: inherit;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    outline: none;
-    padding: 4px 12px;
-    line-height: 20px;
-    min-width: 52px;
-    word-break: keep-all;
-    min-height: 20px;
-    background-color: rgb(179 55 71);
-    width: 100%;
-    height: 34px;
-    border: none;
-    border-radius: 4px;
-    color: white;
+@media only screen and (min-width: 1000px)  {
+    @media only screen and (min-height: 700px)  {
+        .order-form-input {
+        
+            height: calc(18px + 2.1vh + 0.9vw);
+        }
+        .order-form-btn {
+            height: calc(18px + 2.5vh + 0.8vw);
+        }
+    }
 }
 
 

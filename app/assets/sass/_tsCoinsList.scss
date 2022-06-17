@@ -21,7 +21,7 @@
     // overflow-y: scroll;
     // max-height: 40rem;
     table {
-        height: 88%;
+        height: calc(100% - 41px);
     }
     table, thead, tr {
         width: 98%;
