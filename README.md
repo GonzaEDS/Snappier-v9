@@ -1,6 +1,6 @@
 # Snappier - Tranding Simulator.
 
-![Snappier](https://)
+![Snappier](https://github.com/GonzaEDS/Snappier-v9/blob/master/app/assets/img/snappier.svg)
 
 Hi! This is a capstone project and a personal exploration of the possibilities offered by JavaScript.
 **Snappier** is a *cryptocurrency trading simulator* that allows you to build a portfolio and track its performance over time.
@@ -16,7 +16,7 @@ Hi! This is a capstone project and a personal exploration of the possibilities o
 
 > * On the my account page you can see the distribution of your portfolio and edit your personal information.
 
-> * For more details you can watch a quick demo video in the **About this site** section.
+> * For more details you can watch a quick demo video in the [About this site](https://gonzaeds.github.io/Snappier-v9/#/about) section.
 
 ***
 
