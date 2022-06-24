@@ -23,7 +23,6 @@ export function chart() {
       populateWallet(getCurrentUser())
       populateHistory(getCurrentUser())
       parseChartData(coinObjects[0])
-      console.log(getCurrentUser().wallet.coins[getSelectedCoin()] || 0)
     }
   })
 }
@@ -374,7 +373,6 @@ function avblCoin() {
 async function getBalance(user) {
   const userCoinsIds = Object.keys(user.wallet.coins).map(name => getId(name)),
     idsForApiCall = userCoinsIds.join('%2C')
-  console.log(idsForApiCall)
 
   ajax(
     {

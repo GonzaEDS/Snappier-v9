@@ -44,10 +44,8 @@ export function dashboard() {
     ajax({
       url: coinGecko.dashboard_call,
       cbSuccess: res => {
-        console.log(res)
         populateArray(res, coinObjects)
         resetTable(renderTable)
-        // console.log('click')
       }
     })
   }
@@ -108,7 +106,6 @@ export function dashboard() {
         ajax({
           url: `https://api.coingecko.com/api/v3/coins/${coin.id}`,
           cbSuccess: res => {
-            console.log(res.description.en)
             document.querySelector('.coin-info-body').innerHTML =
               res.description.en
           }

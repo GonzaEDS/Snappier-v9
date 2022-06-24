@@ -25,9 +25,5 @@ export function getCurrentUser() {
     toUser.wallet = currentUser.wallet
     toUser.history = currentUser.history
   }
-  // let personFromStorage = JSON.parse(localStorage.getItem('person')) as Person;
-
-  // let person = new Person('');
-  // Object.assign(person , personFromStorage);
   return toUser
 }
