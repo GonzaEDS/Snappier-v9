@@ -1,4 +1,4 @@
-import { usersList, User } from './models.js'
+import { getUsersList, User } from './models.js'
 
 export function isLoged() {
   if (localStorage.getItem('loged-user-id')) {
@@ -9,8 +9,9 @@ export function isLoged() {
 }
 
 export function getCurrentUser() {
-  const currentUser =
-    usersList[Number(localStorage.getItem('loged-user-id') - 1)] || null
+  const usersList = getUsersList(),
+    currentUser =
+      usersList[Number(localStorage.getItem('loged-user-id') - 1)] || null
 
   let toUser = null
   if (currentUser) {
@@ -20,6 +21,7 @@ export function getCurrentUser() {
       currentUser.hashedPassword,
       currentUser.email
     )
+    toUser.image = currentUser.image
     toUser.wallet = currentUser.wallet
     toUser.history = currentUser.history
   }

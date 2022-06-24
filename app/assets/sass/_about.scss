@@ -1,0 +1,100 @@
+
+.about-container {
+    background: linear-gradient(89deg, #32364321, #3236430d);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
+    .about-intro {
+        width: 90%;
+    }
+    .about-text {
+        display: flex;
+        text-align: justify;
+        color: #c0cfe0;
+        font-size: calc(1rem + 0.5vw);
+        font-weight: 300;
+        flex-direction: column;
+        line-height: 1.5;
+        gap: 1rem;
+    }
+    .quick-note {
+        background-color: #121518eb;
+        width: 90%;
+        padding: 1rem 1rem;
+        display: flex;
+        border: 1px solid #bbccd3cf;
+        margin-top: 1.5rem;
+        color: #bbccd3cf;
+        font-size: calc(0.95rem + 0.45vw);
+    }
+    .technical-points {
+        width: 90%;
+        img {
+            width: 2rem;
+            filter: drop-shadow(1px 1px 1px white);
+            margin-right: 0.5rem;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 1rem;
+            li{
+                margin-bottom: 1.5rem;
+            }
+        }
+        .coin-gecko-logo{
+            filter: drop-shadow(1px 1px 1px white) brightness(0.9);
+        }
+    }
+    p {
+        
+        margin: 0;
+    }
+}
+
+.quick-video {
+    width: 100%;
+}
+
+@media only screen and  (min-width: 500px) {
+    .quick-video {
+        width: 80%;
+    }
+    .about-container {
+        .quick-note {
+            padding: 1.5rem 2rem;
+            width: 70%;
+        }
+    }
+    .technical-points {
+        width: 90%;
+        img {
+            width: 2.8rem;
+            filter: drop-shadow(1px 1px 1px white);
+            margin-right: 0.5rem;
+        }
+        ul {
+            padding-left: 2rem;
+            li{
+                margin-bottom: 1.5rem;
+            }
+        }
+
+    }
+    
+
+}
+@media only screen and  (min-width: 850px) {
+    .quick-video {
+        width: 65%;
+    }
+    .about-container {
+        .about-intro {
+            width: 75%;
+        }
+    } 
+
+}

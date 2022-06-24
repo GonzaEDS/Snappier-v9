@@ -18,6 +18,8 @@
 .ts-container > * {
     background-color: #1e2026;
     max-width: calc(100% - 1.4rem);
+    width: calc(100% - 1.4rem);
+    margin: 0 auto;
 }
 
 @import './tsCoinsList';
@@ -38,7 +40,7 @@
         "wallet"
         "history";
     grid-template-columns: 1fr;
-    grid-template-rows: 50vh repeat(2, auto) repeat(2, 34vh);
+    grid-template-rows: 50vh 45vh auto repeat(2, 34vh);
     grid-gap: 1rem;
     padding-top: 1rem;
     tr div {
@@ -69,16 +71,19 @@
     min-height: 6rem;
 }
 
-@media only screen and (min-width: 350px)  {
-    .ts-container {
-        padding: 1.5rem 0.7rem;
+@media only screen and (min-width: 350px){
+
+        .ts-container {
+        padding: 1rem 0rem;
     }
-   
 }
+
 
 @media only screen and (min-width: 665px)  {
     .ts-container > * {
         max-width: unset;
+        /* width: unset; */
+        width: 100%;
     }
     .ts-container {
         grid-template-areas: unset;
@@ -127,6 +132,17 @@
     }
 
 }
+
+@media only screen and (min-width: 520px){
+    @media only screen and(max-width: 665px) {
+        .ts-container > * {
+            width: calc(100% - (1vh + 13vw) + 16px);
+        }
+            
+        
+    }
+    
+}
    
 
 
@@ -173,7 +189,7 @@
     }
 }
 
-@media only screen and (min-width: 992px)  {
+@media only screen and (min-width: 1000px)  {
 
     .ts-container {
 
@@ -184,9 +200,28 @@
 
 
 @media only screen and (min-width: 600px)  {
-    @media only screen and (max-height: 600px)  {
+    @media only screen and (max-height: 500px)  {
+        .ts-container {
+            height: 130vh;
+        }
+    }
+    @media only screen and (max-height: 400px)  {
         .ts-container {
             height: 200vh;
         }
+    }
+}
+
+//firefox
+
+@-moz-document url-prefix() {
+    .ts-coins-list .coins-list table {
+      height: calc(100% - 60px);
+      display: block;
+    }
+    @media only screen and (min-width: 665px){
+      .ts-coins-list .coins-list table {
+        height: calc(100% - 54px);
+      }
     }
 }

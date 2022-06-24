@@ -1,10 +1,26 @@
 .ts-wallet {
-    table {
-        // height: unset;
-        overflow: scroll;
+     
+    .balance {
+
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 95%;
+        color: #b7babdab;
+        height: 33px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        letter-spacing: 0.5px;
+          
+        & :last-child::before {
+        content: '$';
+    }
     }
     table {
+        // height: unset;
+        overflow: hidden;
         height: calc(100% - 30px);
+        height: calc(100% - 63px);
     }
     tbody.wallet-coins {
         height: calc(100% - 33px);
@@ -83,6 +99,7 @@
         }
         table {
             height: calc(100% - 30px);
+            height: calc(100% - 63px);
         }
         tbody.wallet-coins {
             height: calc(100% - 33px);
@@ -93,5 +110,37 @@
         }
     }
 }
+
+
+//firefox
+@-moz-document url-prefix() {
+    .ts-wallet td:last-child {
+        max-width: 40%;
+        overflow-x: auto;
+    }
+    .ts-wallet table {
+        display: block;
+    }
+    .ts-wallet thead {
+        display: flex;
+      }
+    .ts-wallet tbody.wallet-coins {
+        height: calc(100% - 55px);
+    }
+    .ts-wallet thead tr {
+        overflow-y: hidden;
+      }
+      .ts-wallet tbody.wallet-cash {
+        height: 33px;
+        overflow: hidden;
+      }
+      .ts-wallet tbody.wallet-coins {
+        scrollbar-width: thin;
+      }
+      .ts-wallet td:last-child {
+        scrollbar-width: thin;
+      }
+}
+
 
 

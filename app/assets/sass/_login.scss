@@ -80,6 +80,23 @@
 }
 
 
+.demo-account-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    height: 100%;
+    margin: 0.6rem 0;
+    padding-left: 0;
+    .demo-account-check {
+        background-color: #3c3e52;
+        margin-left: -1.5rem;
+    }
+    label.demo-account-label {
+        color: #7b7d9d;
+    }
+}
+
 /* ajdusts */
 .close-btn-adjust {
     top:-3px!important;
@@ -238,7 +255,13 @@
 // font-family: 'Romanesco', cursive;
 // font-family: 'Timmana', sans-serif;
 
+@media only screen and (min-width: 650px)  {
+    .login-container {
+        padding-top: 1.5rem;
+        width: 85%;
+    }
 
+}
 @media only screen and (min-width: 850px)  {
     .login-container {
         padding-top: 1.5rem;

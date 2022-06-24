@@ -1,7 +1,8 @@
-import { usersList } from '../helpers/models.js'
+import { getUsersList } from '../helpers/models.js'
 import { Navigation } from './navigation.js'
 
 export function testPage() {
+  const usersList = getUsersList()
   let logedUserIndex
 
   localStorage.getItem('loged-user-id') == null

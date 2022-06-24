@@ -4,6 +4,7 @@ import { signIn } from './signIn.js'
 import { testPage } from './testPage.js'
 import { User } from './user.js'
 import { chart } from './chart.js'
+import { about } from './about.js'
 
 export function Router() {
   let { hash } = location
@@ -12,7 +13,8 @@ export function Router() {
     htmlSignIn = './app/views/signin.html',
     htmlUser = './app/views/user.html',
     htmlTestPage = './app/views/testpage.html',
-    htmlChart = './app/views/chart.html'
+    htmlChart = './app/views/tradingsim.html',
+    htmlAbout = './app/views/about.html'
 
   switch (hash) {
     case '':
@@ -30,8 +32,11 @@ export function Router() {
     case '#/user':
       htmlRequest(htmlUser, User)
       break
-    case '#/chart':
+    case '#/tradingsim':
       htmlRequest(htmlChart, chart)
+      break
+    case '#/about':
+      htmlRequest(htmlAbout, about)
       break
     default:
       htmlRequest(htmlDashboard, dashboard)

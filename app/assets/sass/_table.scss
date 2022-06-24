@@ -47,7 +47,7 @@ th:not(:first-child), td:not(:first-child)  {
 
 
 
-  @media screen and (max-width:1000px) {
+  @media screen and (max-width:700px) {
    .intro {
     max-width: 1280px;
     margin: 1em auto;
@@ -103,7 +103,35 @@ th:first-child, td:first-child {
     position: fixed;
   }
 
+  tbody tr:hover {
+    filter: none;
+    background-color: unset;
+
+  } 
+
 }
+
+}
+
+//firefox
+@-moz-document url-prefix() {
+  .ts-coins-list .coins-list table {
+    height: calc(100% - 60px);
+    display: block;
+  }
+  @media only screen and (min-width: 665px){
+    .ts-coins-list .coins-list table {
+      height: calc(100% - 54px);
+    }
+  }
+  
+  .ts-coins-list thead {
+    display: flex;
+  }
+  td.cl-price-td {
+    overflow: auto;
+    overflow-x: auto;
+  }
 
 }
 

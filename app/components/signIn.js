@@ -1,7 +1,8 @@
-import { User, usersList } from '../helpers/models.js'
+import { User, getUsersList } from '../helpers/models.js'
 import { formErrorMessage, hash } from '../helpers/validation.js'
 
 export function signIn() {
+  const usersList = getUsersList()
   // 1- seleccionar nombre de usuario y contraseña
   document.querySelector('#signIn-form').addEventListener('submit', e => {
     e.preventDefault()

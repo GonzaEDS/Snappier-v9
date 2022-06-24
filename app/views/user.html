@@ -8,7 +8,7 @@
             <div class="user-header">
                 <h2 class="display mt-2">My Account</h2>
             </div>
-            <aside class="user-card text-center col-12 col-md-3 d-inline-flex flex-column justify-content-center align-items-center">
+            <aside class="user-card text-center col-12 col-md-3 d-inline-flex flex-column align-items-center">
                 <!-- <div>
                     <img src="" onerror="this.src='./app/assets/img/user.svg'" class="user-page-img">
                 </div> -->
@@ -21,14 +21,17 @@
                 <button class="btn btn-danger btn-sm" id="logout">Logout</button>
             </aside>
             <ul class="list-unstyled ">
-                <li>
-                    <p>Name: <span id="name"></span></p>
+                <li data-user-info="name">
+                    <p><span>Name: </span><span id="name"></span></p>
+                    <div class="edit-this-btn" style="display:none">Edit Name</div>
                 </li>
-                <li>
-                    <p>Email: <span id="email"></span></p>
+                <li data-user-info="email" >
+                    <p><span>Email: </span>  <span id="email"></span></p>
+                    <div class="edit-this-btn" style="display:none">Edit Email</div>
                 </li>
-                <li>
-                    <p>Password: <span id="password"></span></p>
+                <li data-user-info="password">
+                    <p> <span>Password: </span><span id="password"></span></p>
+                    <div class="edit-this-btn" style="display:none">Edit Password</div>
                 </li>
                 <i class="fa-solid fa-pen-to-square edit-data me-5 m-md-0"></i>
             </ul>

@@ -1,77 +1,25 @@
-import { coinObjects, usersList, OperationRecord } from '../helpers/models.js'
+import { coinObjects, getUsersList } from '../helpers/models.js'
 import { ajax } from '../helpers/ajax.js'
 import coinGecko from '../helpers/coinGeckoApi.js'
 import { populateArray } from '../helpers/table.js'
 import { getCurrentUser } from '../helpers/session.js'
 import { formatDate } from '../helpers/history.js'
+import { getId } from './user.js'
 
+const usersList = getUsersList()
 const user = getCurrentUser()
 export function chart() {
-  if (!getCurrentUser()) {
-    const body = document.querySelector('body'),
-      main = document.querySelector('main'),
-      modalBox = document.createElement('div'),
-      modalMessage = document.createElement('div'),
-      btnContainer = document.createElement('div'),
-      btn = document.createElement('button'),
-      span = document.createElement('span')
-
-    main.classList.add('position-relative')
-
-    body.style = 'overflow:hidden'
-
-    modalBox.classList.add('modal-box')
-    modalMessage.classList.add('modal-message')
-    modalMessage.innerHTML =
-      'You must be logged in to use the Snappier Trading simmulator'
-
-    btnContainer.classList.add('d-grid', 'submit-box', 'mb-2')
-    btnContainer.appendChild(btn)
-    btn.appendChild(span)
-    btn.setAttribute('href', '#/signin')
-    span.innerHTML = 'Create Account'
-    modalMessage.appendChild(btnContainer)
-
-    modalBox.appendChild(modalMessage)
-    main.insertBefore(modalBox, main.firstChild)
-
-    document
-      .querySelectorAll('[href], .modal-message button')
-      .forEach(element =>
-        element.addEventListener('click', () => {
-          main.classList.remove('position-relative')
-          body.setAttribute('style', '')
-          modalBox.remove()
-        })
-      )
-    btn.addEventListener('click', () => {
-      location.hash = '#/signin'
-    })
-  }
-
+  requireAuth(getCurrentUser())
   ajax({
     url: coinGecko.dashboard_call,
     cbSuccess: res => {
-      let newData = res.map(coin =>
-        (({ name, symbol, id }) => ({ name, symbol, id }))(coin)
-      )
-      console.log(newData)
-      //   function download(content, fileName, contentType) {
-      //     var a = document.createElement("a");
-      //     var file = new Blob([content], {type: contentType});
-      //     a.href = URL.createObjectURL(file);
-      //     a.download = fileName;
-      //     a.click();
-      // }
-      // download(jsonData, 'json.txt', 'text/plain');
-
+      // let newData = res.map(coin =>
+      //   (({ name, symbol, id }) => ({ name, symbol, id }))(coin)
+      // )
       populateArray(res, coinObjects)
       populateCoinsList(coinObjects)
       placeOrder()
       orderEvents(getCurrentUser())
-      console.log(usersList)
-
-      console.log(getCurrentUser())
       populateWallet(getCurrentUser())
       populateHistory(getCurrentUser())
       parseChartData(coinObjects[0])
@@ -83,8 +31,8 @@ function orderEvents(user) {
   document.querySelectorAll('.buySellButton').forEach(button => {
     button.addEventListener('click', e => {
       e.preventDefault()
+
       const type = e.currentTarget.dataset.operation,
-        selectedCoin = getSelectedCoin(),
         quantityInput = document.querySelector(
           `.orderForm-input[data-operation=${type}]`
         ),
@@ -94,23 +42,15 @@ function orderEvents(user) {
         ),
         totalInputValue = Number(totalInput.value)
 
-      user.userOperation(
+      let message = user.userOperation(
         type,
-        selectedCoin,
+        getSelectedCoin(),
         quantityInputValue,
         totalInputValue
       )
+
       avblUsd()
       avblCoin()
-
-      populateWallet(getCurrentUser())
-      populateHistory(getCurrentUser())
-
-      //// TODO UPDATE HISTORY
-      console.log(selectedCoin)
-      console.log(user)
-
-      ////
 
       //   update usersList
       usersList.splice(
@@ -120,6 +60,27 @@ function orderEvents(user) {
       )
       //   save
       localStorage.setItem('users', JSON.stringify(usersList))
+
+      //toast
+      let toastBg
+      message == 'Successful operation'
+        ? (toastBg =
+            'linear-gradient(to right, rgb(12 106 72), rgb(12, 150, 100))')
+        : (toastBg =
+            'linear-gradient(to right, rgb(114 15 28), rgb(179, 55, 71))')
+      Toastify({
+        text: message,
+        position: 'center',
+        duration: 2000,
+        gravity: 'top',
+        style: {
+          background: toastBg
+        }
+      }).showToast()
+
+      populateWallet(getCurrentUser())
+
+      populateHistory(getCurrentUser())
     })
   })
 }
@@ -153,6 +114,7 @@ function populateWallet(user) {
     newTr.appendChild(newAmountTd)
     coinsTbody.appendChild(newTr)
   })
+  getBalance(user)
 }
 
 function populateCoinsList(coinsArray) {
@@ -401,4 +363,79 @@ function avblCoin() {
   avblCoinNode.innerHTML =
     currentCoins -
     document.querySelector("[name='quantity'][data-operation='sell']").value
+}
+
+// function printBalance(user) {
+//   const balance = await getBalance(user)
+
+//   document.querySelector('.usd-balance').innerHTML = balance
+// }
+
+async function getBalance(user) {
+  const userCoinsIds = Object.keys(user.wallet.coins).map(name => getId(name)),
+    idsForApiCall = userCoinsIds.join('%2C')
+  console.log(idsForApiCall)
+
+  ajax(
+    {
+      url: `https://api.coingecko.com/api/v3/simple/price?ids=${idsForApiCall}&vs_currencies=usd`,
+      cbSuccess: res => {
+        const amountTimesPriceArray = Object.keys(user.wallet.coins).map(
+          coinName => user.wallet.coins[coinName] * res[getId(coinName)]['usd']
+        )
+        const balance = [user.wallet.cash]
+          .concat(amountTimesPriceArray)
+          .reduce(
+            (previousValue, currentValue) => previousValue + currentValue,
+            0
+          )
+        document.querySelector('.usd-balance').innerHTML = balance.toFixed(2)
+      }
+    },
+    'noload'
+  )
+}
+
+function requireAuth(user) {
+  if (!user) {
+    const body = document.querySelector('body'),
+      main = document.querySelector('main'),
+      modalBox = document.createElement('div'),
+      modalMessage = document.createElement('div'),
+      btnContainer = document.createElement('div'),
+      btn = document.createElement('button'),
+      span = document.createElement('span')
+
+    main.classList.add('position-relative')
+
+    body.style = 'overflow:hidden'
+
+    modalBox.classList.add('modal-box')
+    modalMessage.classList.add('modal-message')
+    modalMessage.innerHTML =
+      'You must be logged in to use the Snappier Trading simmulator'
+
+    btnContainer.classList.add('d-grid', 'submit-box', 'mb-2')
+    btnContainer.appendChild(btn)
+    btn.appendChild(span)
+    btn.setAttribute('href', '#/signin')
+    span.innerHTML = 'Create Account'
+    modalMessage.appendChild(btnContainer)
+
+    modalBox.appendChild(modalMessage)
+    main.insertBefore(modalBox, main.firstChild)
+
+    document
+      .querySelectorAll('[href], .modal-message button')
+      .forEach(element =>
+        element.addEventListener('click', () => {
+          main.classList.remove('position-relative')
+          body.setAttribute('style', '')
+          modalBox.remove()
+        })
+      )
+    btn.addEventListener('click', () => {
+      location.hash = '#/signin'
+    })
+  }
 }

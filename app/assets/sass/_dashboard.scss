@@ -10,10 +10,12 @@ td img {
 tbody tr  {
     cursor: pointer;
 }
-
 tbody tr:hover {
-    background-color: #645b5b;
-} 
+    background-color: #645b5b24;
+    filter: brightness(1.2);
+
+  } 
+
 
 tr.no-matches-row {
     font-size: calc(0.5rem + 2vw);

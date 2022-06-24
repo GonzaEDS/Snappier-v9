@@ -77,10 +77,6 @@
     .coins-list, .ts-wallet {
         height: 100%;
         background-color: #1e2026;
-        // padding-bottom: 10px;
-        // height: 100%;
-        // overflow-y: scroll;
-        // max-height: 40rem;
         table, thead, tr {
             width: 98%;
             margin: 0 auto;
@@ -121,6 +117,7 @@
       
             tr {
             background-color: #1b2b3c75;
+            background-color: rgb(28, 36, 48);
             margin: 4px auto;
             }
         }
@@ -167,4 +164,20 @@ td.cl-change-td {
         transform: translate(calc(16px - 2.5vw), 0px);
     }
 
+}
+
+//firefox
+
+@-moz-document url-prefix() {
+    td.cl-price-td {
+        overflow-x: auto;
+        scrollbar-width: thin;
+    }
+    .coins-list tbody, .ts-wallet tbody {
+        display: block;
+        overflow-y: scroll;
+        overflow-x: hidden;
+        scrollbar-width: thin;
+    }
+  
 }

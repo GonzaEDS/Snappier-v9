@@ -39,14 +39,13 @@ export class User {
     this.history = []
   }
   userOperation(type, coin, amount, price) {
-    const coinsValue = amount * price,
-      coinName = coin.name
+    const coinName = coin.name
 
     switch (type) {
       case 'buy':
-        if (this.wallet['cash'] < price) {
+        if (this.wallet['cash'] < price || amount === 0) {
           console.log('invalid operation')
-          return 'invalid operation'
+          return 'Invalid operation'
         } else {
           this.wallet['cash'] -= Number(price)
           if (this.wallet.coins.hasOwnProperty(coinName)) {
@@ -60,9 +59,10 @@ export class User {
       case 'sell':
         if (
           this.wallet.coins.hasOwnProperty(coinName) == false ||
-          this.wallet.coins[coinName] < Number(amount)
+          this.wallet.coins[coinName] < Number(amount) ||
+          amount === 0
         ) {
-          return 'invalid operation'
+          return 'Invalid operation'
         } else {
           this.wallet.coins[coinName] -= Number(amount)
           if (this.wallet.coins[coinName] === 0) {
@@ -83,6 +83,7 @@ export class User {
         price
       )
     )
+    return 'Successful operation'
   }
 }
 
@@ -106,6 +107,17 @@ export class OperationRecord {
   }
 }
 
-export const usersList = JSON.parse(localStorage.getItem('users') || '[]')
+export function getUsersList() {
+  return JSON.parse(
+    localStorage.getItem('users') ||
+      '[{"id": 1,"email": "Demo@example.com", "name": "Demo User", "hashedPassword": 1450575459, "wallet": { "cash": 10000, "coins": {}}, "image": "./app/assets/img/user.svg", "history": []}]'
+  )
+}
 
 export const coinObjects = []
+
+export function getAmountTimesPriceArray(user, coinsData) {
+  return Object.keys(user.wallet.coins).map(
+    coinName => user.wallet.coins[coinName] * coinsData[getId(coinName)]['usd']
+  )
+}

@@ -1,8 +1,11 @@
 import { addLoader, removeLoader } from './loader.js'
 
-export async function ajax(props) {
+export async function ajax(props, noload) {
   let { url, cbSuccess } = props
-  addLoader()
+  if (!noload) {
+    addLoader()
+  }
+
   try {
     const response = await fetch(url)
     const data = await response.json()
