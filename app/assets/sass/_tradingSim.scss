@@ -207,7 +207,12 @@
     }
     @media only screen and (max-height: 400px)  {
         .ts-container {
-            height: 200vh;
+            height: 210vh;
+        }
+    }
+    @media only screen and (max-height: 300px)  {
+        .ts-container {
+            height: 260vh;
         }
     }
 }

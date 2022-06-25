@@ -14,7 +14,7 @@ Hi! This is a capstone project and a personal exploration of the possibilities o
 
 > * The trading simulator allows you to buy and sell coins with a starting amount of 10,000 USD.
 
-> * On the my account page you can see the distribution of your portfolio and edit your personal information.
+> * On the **my account** page you can see the distribution of your portfolio and edit your personal information.
 
 > * For more details you can watch a quick demo video in the [About this site](https://gonzaeds.github.io/Snappier-v9/#/about) section.
 

@@ -35,8 +35,6 @@ export function logIn() {
       return
     }
 
-    console.log(password)
-
     if (!usersList.some(user => user.name == name)) {
       formErrorMessage('That username does not exists')
       return
