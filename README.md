@@ -25,7 +25,7 @@ Hi! This is a capstone project and a personal exploration of the possibilities o
 >* Uses multiple enpoints from the CoinGecko API. Sometimes combining two and processing the information to complete a task.
 >* Implements models based on javascript data structures. Classes for Coins and Users are used to build objects that are stored in arrays.
 >* Uses modern ES6 syntax to manipulate classes and arrays and declare functions
-database logo Uses locale storage as a database. Each User has a Wallet and a Transactions Record, besides his personal information, and all this is kept in locale storage.
+>* Uses locale storage as a database. Each User has a Wallet and a Transactions Record, besides his personal information, and all this is kept in locale storage.
 >* In this way, an authentication and session system is also implemented. Some parts of the application are only accessible to users. The application recognizes which user has logged in and displays information accordingly.
 >* Uses the libraries **Highcharts** and **Chart.js** to render interactive charts based on the information stored in its database or received from the API.
 
